@@ -1,0 +1,15 @@
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\bin\Release\DocAppBackendWithAuth.Common.Types.dll.config
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\bin\Release\DocAppBackendWithAuth.Common.Types.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\bin\Release\DocAppBackendWithAuth.Common.Types.pdb
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\bin\Release\Antlr3.Runtime.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\bin\Release\Newtonsoft.Json.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\bin\Release\System.Web.Optimization.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\bin\Release\WebGrease.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\bin\Release\Antlr3.Runtime.pdb
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\bin\Release\Microsoft.Web.Infrastructure.xml
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\bin\Release\Newtonsoft.Json.xml
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\bin\Release\System.Web.Optimization.xml
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\bin\Release\ru\System.Web.Optimization.resources.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\obj\Release\DocAppBackendWithAuth.Common.Types.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\obj\Release\DocAppBackendWithAuth.Common.Types.pdb

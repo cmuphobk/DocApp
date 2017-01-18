@@ -1,0 +1,16 @@
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\LawSystem\Package\Common\IoCContainer\bin\Debug\Ninject.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\LawSystem\Package\Common\IoCContainer\bin\Debug\Ninject.Extensions.Xml.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\LawSystem\Package\Common\IoCContainer\bin\Debug\Ninject.xml
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\LawSystem\Package\Common\IoCContainer\bin\Debug\Ninject.Extensions.Xml.xml
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\LawSystem\Package\Common\IoCContainer\bin\Debug\DocAppBackendWithAuth.Common.IoCContainer.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\LawSystem\Package\Common\IoCContainer\bin\Debug\DocAppBackendWithAuth.Common.IoCContainer.pdb
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\LawSystem\Package\Common\IoCContainer\obj\Debug\DocAppBackendWithAuth.Common.IoCContainer.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\LawSystem\Package\Common\IoCContainer\obj\Debug\DocAppBackendWithAuth.Common.IoCContainer.pdb
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\Debug\DocAppBackendWithAuth.Common.IoCContainer.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\Debug\DocAppBackendWithAuth.Common.IoCContainer.pdb
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\Debug\Ninject.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\Debug\Ninject.Extensions.Xml.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\Debug\Ninject.xml
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\Debug\Ninject.Extensions.Xml.xml
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\obj\Debug\DocAppBackendWithAuth.Common.IoCContainer.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\obj\Debug\DocAppBackendWithAuth.Common.IoCContainer.pdb

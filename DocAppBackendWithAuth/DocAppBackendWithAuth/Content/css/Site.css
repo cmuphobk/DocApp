@@ -1,0 +1,131 @@
+﻿@font-face{
+    font-family:HelvetivaNeueCyr;
+    src: url('../fonts/HelveticaNeueCyr-Medium.otf');
+}
+
+@font-face{
+    font-family:HelvetivaNeueCyrB;
+    src: url('../fonts/HelveticaNeueCyr-Heavy.otf');
+}
+
+@font-face{
+    font-family:HelvetivaNeueCyrL;
+    src: url('../fonts/HelveticaNeueCyr-Light.otf');
+}
+
+
+body {
+    font-family: HelvetivaNeueCyrL;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    outline:none;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-top: 60px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+.close_green{
+    outline: none;
+    margin-top: -10px;
+    font-weight: bolder;
+    font-family: HelvetivaNeueCyrB;
+    color: rgb(60,120,80);
+    font-size: 40px;
+}
+.head_green{
+    font-family: HelvetivaNeueCyr;
+    font-size: 25px;
+    width: 100%;
+    line-height: 1em;
+    text-align: center;
+    color: rgb(60,120,80);
+    margin-bottom: 30px;
+}
+.doc_img{
+
+}
+.rob_img{
+
+}
+.big_pic{
+    text-align:center;
+}
+.close_red{
+    outline: none;
+    margin-top: -10px;
+    font-weight: bolder;
+    font-family: HelvetivaNeueCyrB;
+    color: rgb(190,90,80);
+    font-size: 40px;
+}
+.head_red{
+    font-family: HelvetivaNeueCyr;
+    font-size: 25px;
+    width: 100%;
+    line-height: 1em;
+    text-align: center;
+    color: rgb(190,90,80);
+    margin-bottom: 30px;
+}
+.head_red_s{
+    font-family: HelvetivaNeueCyr;
+    font-size: 18px;
+    width: 100%;
+    line-height: 1em;
+    text-align: center;
+    color: rgb(190,90,80);
+    margin-bottom: 30px;
+}
+
+.navbar-inverse {
+    background-color: rgb(55,160,185);
+    border-color: rgb(55,160,185);
+     height: 80px;
+}
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a{
+    color: white;
+}
+.navbar-inverse:hover .navbar-brand:hover, .navbar-inverse .navbar-nav > li > a:hover{
+    color: rgb(180,60,10);
+}
+.container-fluid{
+    padding-top: 30px;
+}
+    
+.icon_img{
+    margin-top: 15px;
+    width: 50px;
+    float: left;
+    margin-right: 10px;
+}
+.navbar-nav{
+    font-family: HelvetivaNeueCyrL;
+    float: right;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 15px;
+}
+.navbar-brand{
+    font-family: HelvetivaNeueCyr;
+    font-size: 30px;
+    font-weight: 100;
+    margin-top: 15px;
+}
+footer{
+    height:80px;
+    width:100%;
+}
+::-webkit-scrollbar {
+    width: 0px;
+}

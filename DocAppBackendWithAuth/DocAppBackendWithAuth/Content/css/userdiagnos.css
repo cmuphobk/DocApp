@@ -1,0 +1,631 @@
+﻿body {
+}
+.window_load{
+    position:fixed;
+    height:100%;
+    width:100%;
+    background:white;
+    z-index:1000;
+    padding-top: 5%;
+}
+/*.window_man{
+    text-align:center;
+    height:80%;
+    width:80%;
+    display:inline-block;
+    border:solid 1px rgb(240,240,240);
+    margin-left:0;
+    margin-right:0;
+   float:left;
+}
+.window_departaments{
+    overflow-x:hidden;
+    overflow-y:scroll;
+    height:80%;
+    width:20%;
+    
+    display:inline-block;
+    border:solid 1px rgb(240,240,240);
+    margin-left:0;
+    margin-right:0;
+    float:left;
+}
+.set_diagnos{
+        display: inline-block;
+    vertical-align: middle;
+    font-size: 30px;
+    font-family: HelvetivaNeueCyr;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8), 0 0 1em rgba(0,0,0,0.4);
+}
+.departament:hover{
+    background-color:rgb(240,240,240);
+}
+.departament_active{
+    background-color:rgb(240,240,240);
+}
+.window_man_img{
+    height: 100%;
+    position: relative;
+}
+.window_manipulation{
+    
+    height:20%;
+    width:80%;
+    
+    display:inline-block;
+    border:solid 1px rgb(240,240,240);
+    margin-left:0;
+    margin-right:0;
+    float:left;
+}
+.window_agree{
+    background-color:rgb(55,160,185);
+    height:20%;
+    width:20%;
+    
+    display:inline-block;
+    border:solid 1px rgb(240,240,240);
+    margin-left:0;
+    margin-right:0;
+    float:left;
+    text-align: center;
+    vertical-align: middle;
+}
+.window_agree:hover{
+    opacity:.8;
+}
+footer{
+    display:none;
+}
+.window_diagnos{
+    width: 100%;
+    height: 100%;
+    padding-top: 30px;
+    position: fixed;
+    display: inline;
+    padding-bottom: 50px;
+}
+.departament{
+    width: 100%;
+    height: 125px;
+    text-align: center;
+    border: 1px solid rgb(230,230,230);
+    border-left: none;
+    margin: 3px 0px;
+    border-right: none;
+}
+.departament_img{
+    height: 100%;
+    width: auto;
+}*/
+.departament{
+    width:100%;
+    padding:0px 20px;
+    border-bottom: solid 1px rgb(160,210,220);
+    padding:0;
+}
+
+.departament_label{
+    height: 60px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    color: white;
+    font-size: 20px;
+    line-height: 60px;
+    padding-left: 30px;
+}
+.diagnos_system_div, .diagnos_group_div{
+    padding:5px 5px;
+}
+
+.diagnos_system_div:hover, .departament_active{
+    background-color: white;
+}
+
+.diagnos_group_div:hover, .group_active{
+    background-color: rgb(160,210,220);
+}
+.diagnos_system_div:hover .departament_label, .departament_active .departament_label{
+    color: rgb(160,210,220);
+}
+.departament_group_label{
+    color: rgb(160,210,220);
+    font-size: 20px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 0;
+    padding-left: 95px;
+}
+.diagnos_group_div:hover .departament_group_label, .group_active .departament_group_label{
+    color: white;
+}
+.departament_symptom_label{
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    padding: 10px 0px 10px 95px;
+}
+.departament_symptom_label_active{
+    background-color: white;
+    color: rgb(160,210,220);
+}
+.departament_symptom_label:hover{
+    background-color: white;
+    color: rgb(160,210,220);
+}
+.departament_img{
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+}
+.window_man_img{
+    height: 100%;
+    max-width: 100%;
+    position: relative;
+}
+.diagnos_container{
+    position: absolute;
+    width: 91%;
+    margin-left: 10%;
+    height: 100%;
+    padding-top: 80px;
+    top: 0;
+    display: inline-block;
+}
+.diagnos_container_small{
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    padding-top: 80px;
+    top: 0;
+    display: inline-block;
+    background-color: rgb(160,210,220);
+}
+.isMaleLabel, .isFemaleLabel{
+    color: rgb(55,160,185);
+    font-size: 20px;
+    width:100%;
+    text-align:center;
+}
+#isMale{
+    width:100%;
+}
+.isMaleLabel:hover, .isFemaleLabel:hover, .isMaleLabelActive{
+    color: white;
+    font-size: 20px;
+    width:100%;
+    text-align:center;
+}
+#isFemale{
+    width:100%;
+}
+button{
+    outline:none;
+}
+.ok_btn:hover, .left_btn:hover,.right_btn:hover{
+    /* Firefox */
+    -moz-transform: rotate(60deg) ;
+    /* WebKit */
+    -webkit-transform: rotate(60deg);
+    /* Opera */
+    -o-transform:rotate(60deg);
+    /* Standard */
+    transform:  rotate(60deg) ;
+}
+.left_btn{
+    height:60px;
+    width:90px;
+    padding:0;
+    margin:0;
+    background-image:url(../img/1.png);
+    background-size:contain;
+    background-color: transparent;
+    border: none;
+    background-repeat:no-repeat;
+    background-position-x:50%;
+    transition:all 1s ease;
+}
+.right_btn{
+     height:60px;
+    width:90px;
+    padding:0;
+    margin:0;
+    background-image:url(../img/2.png);
+    background-size:contain;
+    background-color: transparent;
+    border: none;
+    background-repeat:no-repeat;
+    background-position-x:50%;
+    transition:all 1s ease;
+}
+.close_ans{
+    padding: 10px 15px !important;
+    outline: none;
+    margin-top: -10px;
+    font-weight: bolder;
+    font-family: HelvetivaNeueCyrB;
+    color: rgb(190,90,80);
+    font-size: 40px;
+}
+.answer_block {
+    width: 60%;
+    left: 20%;
+    position: fixed;
+    height: 300px;
+    bottom: 0;
+    background: white;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,5);
+}
+.first_{
+    margin-left:20px;
+}
+.container_answer{
+    margin-top:40px;
+}
+.name_answer_block{
+    font-size:18px;
+    color:rgb(55,160,185);
+}
+.rate_answer_block{
+    font-size:18px;
+    color:rgb(160,210,220);
+}
+.description_answer_block{
+    font-size:15px;
+    color:rgb(160,210,220);
+}
+.ok_btn{
+    height:60px;
+    width:90px;
+    padding:0;
+    margin:0;
+    background-image:url(../img/3.png);
+    background-size:contain;
+    background-color: transparent;
+    border: none;
+    background-repeat:no-repeat;
+    background-position-x:50%;
+    transition:all 1s ease;
+}
+.label_dummy_symptom{
+    font-size: 20px;
+    color: rgb(200,230,220);
+    width: 100%;
+    text-align: center;
+    line-height: 1em;
+    margin-bottom: 0px;
+}
+.label_dummy_symptom_big{
+    font-size: 35px;
+    color: rgb(200,230,220);
+    width: 100%;
+    text-align: center;
+    line-height: 1em;
+    margin-bottom: 0px;
+}
+.diagnos_symptom_div{
+    margin-top: 80px;
+}
+.departament{
+    background-image: url(../img/ar1.png);
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: 95%;
+}
+.departament:hover{
+    background-image: url(../img/ar2.png);
+}
+.departament_focus{
+    background-image: url(../img/ar2.png);
+}
+.departament_group{
+    background-image:url(../img/ar3.png);
+    background-size: 9px;
+    background-repeat: no-repeat;
+    background-position: 95%;
+}
+.departament_symptom_label{
+    background-image:url(../img/ar3.png);background-size: 9px;
+    background-repeat: no-repeat;
+    background-position: 95%;
+}
+.col_md_4{
+   height:100%;
+   width:33%;
+   display: inline-block;
+   vertical-align: top;
+    float: left;
+}
+.diagnos_man{
+   display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-bottom: 80px;
+}
+.manipulation_man{
+    display: inline-block;
+    width: 100%;
+    height: 80px;
+    margin-top: -80px;
+    vertical-align: top;
+    text-align: center;
+}
+.diagnos_system{
+    display:inline-block;
+    width:100%;
+    height:100%;
+    background-color: rgb(55,160,185);
+    border: solid 1px white;
+    overflow: scroll;
+}
+.diagnos_symptom{
+    display:inline-block;
+    width:100%;
+    height:100%;
+    background-color: rgb(160,210,220);
+    border: solid 1px white;
+    overflow: scroll;
+}
+.diagnos_system_label {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+    background-color: rgb(55,160,185);
+    color: rgb(160,210,220);
+    border-bottom: solid 1px rgb(160,210,220);
+    margin-bottom:0;
+}
+.diagnos_symptom_label{
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+    background-color: rgb(160,210,220);
+    color: rgb(200,230,220);
+    border-bottom: solid 1px white;
+    margin-bottom:0px;
+}
+footer{
+    display:none;
+    
+}
+
+.popup{
+    position: fixed;
+    height: 300px;
+    width: 200px;
+    left: 15px;
+    top: 100px;
+    border-radius: 5px;
+    box-shadow: -1px 0 5px rgba(0,0,0,0.3);
+    background-color:white;
+}
+.popup_body{
+    overflow:scroll;
+    width:100%;
+    height:100%;
+}
+.popup_gr:before {
+    content: ' ';
+    height: 0;
+    position: absolute;
+    width: 0;
+    top: 50px;
+    left: 200px;
+    border: 10px solid transparent;
+    border-left-color: rgba(0,0,0,0.1);
+}
+.popup_sym:before {
+    content: ' ';
+    height: 0;
+    position: absolute;
+    width: 0;
+    top: 0px;
+    left: 200px;
+    border: 10px solid transparent;
+    border-left-color: rgba(0,0,0,0.1);
+}
+.popup_label{
+     width: 100%;
+    /* height: 15px; */
+    text-align: left;
+    padding: 5px 10px;
+    line-height: 1em;
+}
+.popup_label:hover {
+    background-color:rgb(240,240,240);
+}
+.popup_label_active {
+    background-color:rgb(240,240,240);
+}
+
+/*loading*/
+.cssload-thecube {
+	width: 73px;
+	height: 73px;
+	margin: 0 auto;
+	margin-top: 49px;
+	position: relative;
+	transform: rotateZ(45deg);
+		-o-transform: rotateZ(45deg);
+		-ms-transform: rotateZ(45deg);
+		-webkit-transform: rotateZ(45deg);
+		-moz-transform: rotateZ(45deg);
+}
+.cssload-thecube .cssload-cube {
+	position: relative;
+	transform: rotateZ(45deg);
+		-o-transform: rotateZ(45deg);
+		-ms-transform: rotateZ(45deg);
+		-webkit-transform: rotateZ(45deg);
+		-moz-transform: rotateZ(45deg);
+}
+.cssload-thecube .cssload-cube {
+	float: left;
+	width: 50%;
+	height: 50%;
+	position: relative;
+	transform: scale(1.1);
+		-o-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		-webkit-transform: scale(1.1);
+		-moz-transform: scale(1.1);
+}
+.cssload-thecube .cssload-cube:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(43,160,199);
+	animation: cssload-fold-thecube 2.76s infinite linear both;
+		-o-animation: cssload-fold-thecube 2.76s infinite linear both;
+		-ms-animation: cssload-fold-thecube 2.76s infinite linear both;
+		-webkit-animation: cssload-fold-thecube 2.76s infinite linear both;
+		-moz-animation: cssload-fold-thecube 2.76s infinite linear both;
+	transform-origin: 100% 100%;
+		-o-transform-origin: 100% 100%;
+		-ms-transform-origin: 100% 100%;
+		-webkit-transform-origin: 100% 100%;
+		-moz-transform-origin: 100% 100%;
+}
+.cssload-thecube .cssload-c2 {
+	transform: scale(1.1) rotateZ(90deg);
+		-o-transform: scale(1.1) rotateZ(90deg);
+		-ms-transform: scale(1.1) rotateZ(90deg);
+		-webkit-transform: scale(1.1) rotateZ(90deg);
+		-moz-transform: scale(1.1) rotateZ(90deg);
+}
+.cssload-thecube .cssload-c3 {
+	transform: scale(1.1) rotateZ(180deg);
+		-o-transform: scale(1.1) rotateZ(180deg);
+		-ms-transform: scale(1.1) rotateZ(180deg);
+		-webkit-transform: scale(1.1) rotateZ(180deg);
+		-moz-transform: scale(1.1) rotateZ(180deg);
+}
+.cssload-thecube .cssload-c4 {
+	transform: scale(1.1) rotateZ(270deg);
+		-o-transform: scale(1.1) rotateZ(270deg);
+		-ms-transform: scale(1.1) rotateZ(270deg);
+		-webkit-transform: scale(1.1) rotateZ(270deg);
+		-moz-transform: scale(1.1) rotateZ(270deg);
+}
+.cssload-thecube .cssload-c2:before {
+	animation-delay: 0.35s;
+		-o-animation-delay: 0.35s;
+		-ms-animation-delay: 0.35s;
+		-webkit-animation-delay: 0.35s;
+		-moz-animation-delay: 0.35s;
+}
+.cssload-thecube .cssload-c3:before {
+	animation-delay: 0.69s;
+		-o-animation-delay: 0.69s;
+		-ms-animation-delay: 0.69s;
+		-webkit-animation-delay: 0.69s;
+		-moz-animation-delay: 0.69s;
+}
+.cssload-thecube .cssload-c4:before {
+	animation-delay: 1.04s;
+		-o-animation-delay: 1.04s;
+		-ms-animation-delay: 1.04s;
+		-webkit-animation-delay: 1.04s;
+		-moz-animation-delay: 1.04s;
+}
+
+
+
+@keyframes cssload-fold-thecube {
+	0%, 10% {
+		transform: perspective(136px) rotateX(-180deg);
+		opacity: 0;
+	}
+	25%,
+				75% {
+		transform: perspective(136px) rotateX(0deg);
+		opacity: 1;
+	}
+	90%,
+				100% {
+		transform: perspective(136px) rotateY(180deg);
+		opacity: 0;
+	}
+}
+
+@-o-keyframes cssload-fold-thecube {
+	0%, 10% {
+		-o-transform: perspective(136px) rotateX(-180deg);
+		opacity: 0;
+	}
+	25%,
+				75% {
+		-o-transform: perspective(136px) rotateX(0deg);
+		opacity: 1;
+	}
+	90%,
+				100% {
+		-o-transform: perspective(136px) rotateY(180deg);
+		opacity: 0;
+	}
+}
+
+@-ms-keyframes cssload-fold-thecube {
+	0%, 10% {
+		-ms-transform: perspective(136px) rotateX(-180deg);
+		opacity: 0;
+	}
+	25%,
+				75% {
+		-ms-transform: perspective(136px) rotateX(0deg);
+		opacity: 1;
+	}
+	90%,
+				100% {
+		-ms-transform: perspective(136px) rotateY(180deg);
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes cssload-fold-thecube {
+	0%, 10% {
+		-webkit-transform: perspective(136px) rotateX(-180deg);
+		opacity: 0;
+	}
+	25%,
+				75% {
+		-webkit-transform: perspective(136px) rotateX(0deg);
+		opacity: 1;
+	}
+	90%,
+				100% {
+		-webkit-transform: perspective(136px) rotateY(180deg);
+		opacity: 0;
+	}
+}
+
+@-moz-keyframes cssload-fold-thecube {
+	0%, 10% {
+		-moz-transform: perspective(136px) rotateX(-180deg);
+		opacity: 0;
+	}
+	25%,
+				75% {
+		-moz-transform: perspective(136px) rotateX(0deg);
+		opacity: 1;
+	}
+	90%,
+				100% {
+		-moz-transform: perspective(136px) rotateY(180deg);
+		opacity: 0;
+	}
+}
+/*loading*/

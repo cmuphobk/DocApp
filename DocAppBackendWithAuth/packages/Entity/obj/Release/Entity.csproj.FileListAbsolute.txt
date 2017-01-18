@@ -1,0 +1,3 @@
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Entity\obj\Release\Entity.csprojResolveAssemblyReference.cache
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Entity\obj\Release\DocAppBackendWithAuth.Entity.Entity.Migrations.FM.resources
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Entity\obj\Release\Entity.csproj.GenerateResource.Cache

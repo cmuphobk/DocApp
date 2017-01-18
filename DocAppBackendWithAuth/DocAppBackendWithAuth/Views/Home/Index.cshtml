@@ -1,0 +1,210 @@
+﻿@section styles{
+    <link href="@Url.Content("~/Content/css/home.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="container body-content">
+    <div class="row">
+        <div class="col-md-12 big_pic">
+            <label class="hello_world">ВАШ ЛИЧНЫЙ ДОКТОР</label>
+            <!--Landing page-->
+            <img class="doc_img" src="~/Content/img/doctor.png"/>
+            <img class="rob_img" src="~/Content/img/robot.png" />
+        </div>
+    </div>
+</div>
+
+<script>
+    /*var tokenKey = "tokenInfo";
+    var loginData = {
+        grant_type: 'password',
+        username: "Admin",
+        password: "123456"
+    };*/
+ 
+    /*function login() {
+        $.ajax({
+            type: 'POST',
+            url: '/Token',
+            data: loginData
+        }).success(function (data) {
+            // сохраняем в хранилище sessionStorage токен доступа
+            sessionStorage.setItem(tokenKey, data.access_token);
+        }).fail(function (data) {
+            alert('При логине возникла ошибка');
+        });
+    }
+ 
+    function logout() {
+        e.preventDefault();
+        sessionStorage.removeItem(tokenKey);
+    }*/
+
+    /*function Diagnos(name) {
+        $.ajax({
+            type: 'POST',
+            url: '/api/Neural/Diagnos?name=' + name,
+            beforeSend: function (xhr) {
+                var token = sessionStorage.getItem(tokenKey);
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (data) {
+                alert(data);
+            },
+            fail: function (data) {
+                alert(data);
+            }
+        });
+    }
+
+    function Symptom(name) {
+        $.ajax({
+            type: 'POST',
+            url: '/api/Neural/Symptom?name=' + name,
+            beforeSend: function (xhr) {
+                var token = sessionStorage.getItem(tokenKey);
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (data) {
+                alert(data);
+            },
+            fail: function (data) {
+                alert(data);
+            }
+        });
+    }
+    
+    function getDiagnoses(id) {
+        $.ajax({
+            type: 'GET',
+            url: '/api/Neural/Diagnoses?id=' + id,
+            beforeSend: function (xhr) {
+                var token = sessionStorage.getItem(tokenKey);
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (data) {
+                alert(data);
+            },
+            fail: function (data) {
+                alert(data);
+            }
+        });
+    }
+
+    function getSymptoms(id) {
+        $.ajax({
+            type: 'GET',
+            url: '/api/Neural/Symptoms?id=' + id + '&idGroups=null',
+            beforeSend: function (xhr) {
+                var token = sessionStorage.getItem(tokenKey);
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (data) {
+                alert(data);
+            },
+            fail: function (data) {
+                alert(data);
+            }
+        });
+    }*/
+
+    /*function getAnswer(arr) {
+        $.ajax({
+            type: 'POST',
+            url: '/api/Neural/Answer/',
+            beforeSend: function (xhr) {
+                var token = sessionStorage.getItem(tokenKey);
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            contentType: 'application/json',
+            data: JSON.stringify(arr),
+            success: function (data) {
+                alert(data);
+            },
+            fail: function (data) {
+                alert(data);
+            }
+        });
+    }
+
+    function getFullAnswer(arr) {
+        $.ajax({
+            type: 'POST',
+            url: '/api/Neural/FullAnswer/',
+            beforeSend: function (xhr) {
+                var token = sessionStorage.getItem(tokenKey);
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            contentType: 'application/json',
+            data: JSON.stringify(arr),
+            success: function (data) {
+                alert(data);
+            },
+            fail: function (data) {
+                alert(data);
+            }
+        });
+    }*/
+
+    /*function study(id, arr) {
+        $.ajax({
+            type: 'POST',
+            url: '/api/Neural/Study/?id='+id,
+            beforeSend: function (xhr) {
+                var token = sessionStorage.getItem(tokenKey);
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            contentType: 'application/json',
+            data: JSON.stringify(arr),
+            success: function (data) {
+                alert(data);
+            },
+            fail: function (data) {
+                alert(data);
+            }
+        });
+    }*/
+
+    /*function getUserInfo() {
+        $.ajax({
+            type: 'GET',
+            url: '/api/Account/UserInfo/',
+            beforeSend: function (xhr) {
+                var token = sessionStorage.getItem(tokenKey);
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (data) {
+                alert(data);
+            },
+            fail: function (data) {
+                alert(data);
+            }
+        });
+        
+    }
+
+    function register() {
+        $.ajax({
+            type: 'POST',
+            url: '/api/Account/Register/',
+            dataType: 'application/json',
+            data:{
+                Name: '123',
+                FirstName: '123',
+                SecondName: '123',
+                UserName: '123',
+                Email: 'cmupho56536fhb.k@gmail.com',
+                Password: 'Aa123456!',
+                ConfirmPassword: 'Aa123456!'
+            },
+            success: function (data) {
+                alert(data);
+            },
+            fail: function (data) {
+                alert(data);
+            }
+        });
+
+    }*/
+    
+
+</script>

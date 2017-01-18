@@ -1,0 +1,73 @@
+﻿.systems_select, .group_select, .symptom_select, .diagnos_select{
+    width: 100%;
+    line-height: 1em;
+    border: 0;
+    border: 1px solid rgb(230,230,230);
+    background: #fff url('../img/arrow down.png') no-repeat;
+    background-size: 13px;
+    background-position: right 10px center;
+    font-family: HelvetivaNeueCyrL  ;
+    padding: 8px 30px 8px 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    outline:none;
+}   
+.first_section{
+
+}
+.second_section{
+    padding-top:20px;
+}
+.s_button{
+    background-color: rgb(55,160,185);
+    border: none;
+    border-radius: 5px;
+    font-family: HelvetivaNeueCyr;
+    width:100%;
+    padding:5px 0;
+    color: white;
+    outline:none;
+}
+.s_row{
+    padding-bottom:20px;
+}
+.systems_label{
+    font-family: HelvetivaNeueCyr;
+    font-size: 20px;
+}
+
+.header_symptom{
+    font-family:HelvetivaNeueCyr;
+    font-size:22px;
+    color: rgb(55,160,185);
+    margin-bottom: 25px;
+    text-align:left;
+    width: 95%
+}
+.close_red{
+    width: 5%;
+}
+.name_symptom{
+    width: 100%;
+    border: 1px solid rgb(55,160,185);
+    border-radius: 5px;
+    padding: 6px 10px;
+    margin-bottom:10px;
+    outline:none;
+}
+.save_symptom{
+    font-family: HelvetivaNeueCyr;
+    color: white;
+    background: rgb(55,160,185);
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 8px 40px;
+    margin-top: 20px;
+    outline:none;
+}
+.body_symptom{
+    text-align:center;
+}

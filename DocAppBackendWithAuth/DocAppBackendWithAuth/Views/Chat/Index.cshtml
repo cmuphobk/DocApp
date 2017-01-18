@@ -1,0 +1,152 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <link href="@Url.Content("~/Content/css/chat.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-4">
+                <!--ko foreach: dialogs-->
+                <label class="dialog" data-bind="text:Id, event:{click:$root.clickDialog}"></label>
+                <!--/ko-->
+            </div>
+            <div class="col-md-8">
+                <!--ko foreach: messages-->
+                <label class="message" data-bind="text:Text"></label>
+                <!--/ko-->
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <input type="text" data-bind="value:messageText" />
+                <button data-bind="event:{click:sendMessageClick}">Отправить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    
+    function ViewModel () {
+        self = this;
+        self.chat = $.connection.chatHub;
+
+        self.userId = null;
+        self.currentDialogId = ko.observable(null);
+        self.currentReciepentId = ko.observable(null);
+
+        self.messageText = ko.observable('');
+
+        self.dialogs = ko.observableArray([]);
+        self.messages = ko.observableArray([]);
+
+        self.clickDialog = function (data,event) {
+            self.currentDialogId(data.Id);
+            if (data.IdFirstUser == self.userId) {
+                self.currentReciepentId(data.IdSecondUser);
+            } else {
+                self.currentReciepentId(data.IdFirstUser);
+            }
+            self.setMessages(data.Id);
+        }
+
+        self.sendMessageClick = function(data, event){
+            self.sendMessage(self.currentReciepentId(), self.messageText());
+        }
+
+        self.sendMessage = function (reciepentId, message){
+            self.chat.server.send(reciepentId, message);
+        }
+
+        self.setDialogs = function (callback) {
+            
+            $.ajax({
+                type: 'GET',
+                url: '/api/ChatApi/Dialogs',
+                beforeSend: function (xhr) {
+                    var token = sessionStorage.getItem(tokenKey);
+                    xhr.setRequestHeader("Authorization", "Bearer " + token);
+                },
+                success: function (data) {
+                    //alert(data);
+                    self.dialogs(data);
+                    typeof (callback) == 'function' && callback();
+                    
+                },
+                fail: function (data) {
+                    //alert(data);
+                    handleException(data);
+                }
+            });
+            
+        }
+
+        self.setMessages = function (dialogId) {
+            if (dialogId) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/ChatApi/Messages?dialogId=' + dialogId,
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    success: function (data) {
+                        //alert(data);
+                        self.messages(data);
+                    },
+                    fail: function (data) {
+                        //alert(data);
+                        handleException(data);
+                    }
+                });
+            }
+            
+
+        }
+
+        self.generateView = function () {
+            getCredentials(function (data) {
+                self.userId = data;
+                $.connection.hub.start().done(function () {
+                    self.chat.server.connect();
+                });
+            });
+                     
+     
+        }
+    }
+    var viewModel = new ViewModel();
+    viewModel.generateView();
+
+    viewModel.chat.client.addMessage = function (reciepentId, message) {
+        viewModel.setMessages(viewModel.currentDialogId());
+        console.log('addMessage');
+    }
+
+    viewModel.chat.client.onConnected = function () {
+        viewModel.setDialogs(function () {
+            viewModel.setMessages(viewModel.currentDialogId());
+        });
+        
+        console.log('connect');
+    }
+
+    viewModel.chat.client.onUserDisconnected = function () {
+        console.log('disconnect');
+    }
+
+    ko.applyBindings(viewModel);
+    });
+</script>
+

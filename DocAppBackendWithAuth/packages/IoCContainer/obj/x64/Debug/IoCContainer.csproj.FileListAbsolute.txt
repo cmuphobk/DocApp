@@ -1,0 +1,8 @@
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\x64\Debug\DocAppBackendWithAuth.Common.IoCContainer.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\x64\Debug\DocAppBackendWithAuth.Common.IoCContainer.pdb
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\x64\Debug\Ninject.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\x64\Debug\Ninject.Extensions.Xml.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\x64\Debug\Ninject.xml
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\x64\Debug\Ninject.Extensions.Xml.xml
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\obj\x64\Debug\DocAppBackendWithAuth.Common.IoCContainer.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\obj\x64\Debug\DocAppBackendWithAuth.Common.IoCContainer.pdb

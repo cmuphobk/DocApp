@@ -1,0 +1,405 @@
+﻿
+@{
+    ViewBag.Title = "UserDiagnos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <link href="@Url.Content("~/Content/css/userdiagnos.css")" rel="stylesheet" type="text/css" />
+}
+
+
+<div class="window_load" data-bind="visible:isLoading">
+    <div class="cssload-thecube">
+        <div class="cssload-cube cssload-c1"></div>
+        <div class="cssload-cube cssload-c2"></div>
+        <div class="cssload-cube cssload-c4"></div>
+        <div class="cssload-cube cssload-c3"></div>
+    </div>
+</div>
+
+<div class="diagnos_container_small">
+    <label for="isMale" class="isMaleLabel" data-bind="css:{isMaleLabelActive:isMale()}">МУЖЧИНА</label>
+    <input id="isMale" style="display:none;" type="checkbox" data-bind="checked:isMale, event:{change:isMaleClick}" />
+    <label for="isFemale"  class="isFemaleLabel"  data-bind="css:{isMaleLabelActive:isFemale()}">ЖЕНЩИНА</label>
+    <input id="isFemale" style="display:none;" type="checkbox" data-bind="checked:isFemale, event:{change:isFemaleClick}" />
+</div>
+<div class="diagnos_container">
+    <div class="col_md_4">
+        <div class="diagnos_man">
+            <img class="window_man_img" alt="" usemap="#map"  data-bind="attr:{src:departamentBigImage}"/>
+            <map  name="map" id="map">
+                <area coords="100,100,90" shape="circle" />
+            </map>
+        </div>
+        <div class="manipulation_man">
+            <button class="left_btn" data-bind="event:{click:generateView}"></button>
+            <button class="right_btn"></button>
+            <button class="ok_btn" data-bind="event:{click:getAnswerClick}"></button>
+        </div>
+    </div>
+    <div class="col_md_4">
+        <div class="diagnos_system">
+            
+            <label class="diagnos_system_label">ВЫБОР ОБЛАСТИ</label>
+           
+            <!-- ko foreach: departaments-->
+            <div class="departament" data-bind="event:{click:$root.departamentClick}, css:{departament_focus:id==$root.selectedDepartamentId()}">
+                <div class="diagnos_system_div" data-bind="css:{departament_active:id==$root.selectedDepartamentId()}">
+                    <img class="departament_img" data-bind="event:{click:$root.departamentClick},attr:{src:$data.smallImage?'data:image/png;base64,'+$data.smallImage:'../Content/img/dummy.jpg', alt:$data.name}" />
+                    <label class="departament_label" data-bind="text:$data.name"></label>
+                </div>
+                <!-- ko foreach: $root.groups-->
+                <div class="departament_group" data-bind="visible:$parent.id==$root.selectedDepartamentId(),  event:{click:$root.groupClick}">
+                    <div class="diagnos_group_div" data-bind="css:{group_active:$data.id==$root.selectedGroupId()}">
+                        <label class="departament_group_label" data-bind="text:$data.name"></label>
+                    </div>
+                </div>
+                <!--/ko-->
+             </div>
+            <!--/ko-->
+        </div>
+        
+    </div>
+    <div class="col_md_4">
+        <div class="diagnos_symptom">
+           
+            <label class="diagnos_symptom_label">ВЫБОР СИМПТОМА</label>
+            <div class="diagnos_symptom_div" data-bind="visible:symptoms().length==0">
+                <label class="label_dummy_symptom">ДЛЯ ДАЛЬНЕЙШЕГО АНАЛИЗА</label>
+                <label class="label_dummy_symptom_big">НУЖНО ВЫБРАТЬ ОБЛАСТЬ</label>
+            </div>
+            <!-- ko foreach: symptoms-->
+            <label class="departament_symptom_label" data-bind="text:name, event:{click:$root.symptomClick}, css:{departament_symptom_label_active:$root.selectedSymptomsId.indexOf(id)!=-1}"></label>
+            <!--/ko-->
+        </div>
+    </div>
+    <div class="answer_block" data-bind="visible:generateAnswerView()">
+        <button type="button" class="close close_ans" data-bind="event:{click:closeAnswer}">&times;</button>
+        <div class="container_answer">
+            <!-- ko foreach: answers-->
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="first_ name_answer_block">НАЗВАНИЕ ДИАГНОЗА:</label>
+                    <label class="name_answer_block" data-bind="text:$data.Key.name"></label>
+                    <label class="first_ rate_answer_block">ВЕС:</label>
+                    <label class="rate_answer_block" data-bind="text:$data.Value"></label>
+                    <label class="first_ description_answer_block">ОПИСАНИЕ:</label>
+                    <label class="description_answer_block" data-bind="text:$data.Key.descripton"></label>
+                </div>
+            </div>
+            <!--/ko-->
+        </div>
+    </div>
+</div>
+<!--div class="window_diagnos">
+    <div class="window_man">
+        <img class="window_man_img" data-bind="attr:{src:departamentBigImage}"/>
+    </div>
+    <div class="window_departaments">
+        <!-- ko foreach: departaments--*>
+        <div class="departament" data-bind="css:{departament_active:id==$root.selectedDepartamentId()}">
+            <img class="departament_img" data-bind="event:{click:$root.departamentClick},attr:{src:$data.smallImage?'data:image/png;base64,'+$data.smallImage:'../Content/img/dummy.jpg', alt:$data.name}"/>
+        </div>
+        <!--/ko--*>
+    </div>
+    <div class="window_manipulation">
+        <div class="col-md-4">
+            <label for="isMale" class="isMaleLabel">Для мужчины</label>
+            <input id="isMale" type="checkbox" data-bind="checked:isMale, event:{change:isMaleClick}" />
+            <label for="isFemale" class="isFemaleLabel">Для женщины</label>
+            <input id="isFemale" type="checkbox" data-bind="checked:isFemale, event:{change:isFemaleClick}" />
+        </div>
+        <div class="col-md-4">
+            <!--Выбранные симптомы--*>
+        </div>
+        <div class="col-md-4">
+            <!--Данные о резуьтате диагноза--*>
+        </div>
+    </div>
+    <div class="window_agree" data-bind="event:{click:getAnswerClick}">
+        <label class="set_diagnos">Постановка диагноза</label>
+    </div>
+</!--div>
+<div class="popup popup_gr" data-bind="visible:groups().length>0">
+    <div class="popup_body">
+        <!-- ko foreach: groups--*>
+        <label class="popup_label" data-bind="text:name, event:{click:$root.groupClick}, css:{popup_label_active:id==$root.selectedGroupId()}"></label>
+        <!--/ko--*>
+    </div>
+</div>
+
+<div class="popup popup_sym"  data-bind="visible:symptoms().length>0">
+    <div class="popup_body">
+        <!-- ko foreach: symptoms--*>
+        <label class="popup_label" data-bind="text:name, event:{click:$root.symptomClick}, css:{popup_label_active:$root.selectedSymptomsId.indexOf(id)!=-1}"></label>
+        <!--/ko--*>
+    </div>
+</div-->
+
+<script>
+
+    $(document).ready(function () {
+        function ViewModel() {
+            var self = this;
+
+            self.isMale = ko.observable(true);
+            self.isFemale = ko.observable(false);
+
+            self.isMaleClick = function () {
+                self.isMale(true);
+                self.isFemale(false);
+                self.generateView();
+            }
+            self.isFemaleClick = function () {
+                self.isMale(false);
+                self.isFemale(true);
+                self.generateView();
+            }
+            
+            self.answers = ko.observableArray([]);
+
+            self.isLoading = ko.observable(false);
+
+            self.coords = ko.observable('');
+
+            self.departaments = ko.observableArray([]);
+
+            self.departamentBigImage = ko.observable();
+        
+            self.groups = ko.observableArray([]);
+
+            self.symptoms = ko.observableArray([]);
+
+            self.generateAnswerView = ko.observable(false);
+
+            self.selectedDepartamentId = ko.observable(null);
+            self.selectedGroupId = ko.observable(null);
+            self.selectedSymptomsId = ko.observableArray([]);
+
+            self.closeAnswer = function () {
+                self.generateAnswerView(false);
+            }
+            
+            self.generateView = function () {
+                self.isLoading(true);
+                if (self.isMale()) {
+                    self.departamentBigImage("/Content/img/m0.png");
+                } else {
+                    self.departamentBigImage("/Content/img/w1.png");
+                }
+                
+                self.getDepartaments(function (result) {
+                    self.departaments(result);
+    
+                    setTimeout(function () { self.isLoading(false) }, 2000);
+                });
+            }
+
+            $(window).click(function () {
+                self.selectedDepartamentId(null);
+                self.groups([]);
+                self.symptoms([]);
+            });
+
+            self.departamentClick = function (data, event) {
+                event.stopPropagation();
+                var departement = data;
+                var image = self.isMale() ? data.bigImage : data.bigImageWoman;
+                var src = image ? 'data:image/png;base64,' + image : '../Content/img/dummy.jpg'
+                var offsetDepartament = $(event.target).parent().offset();
+                $('.popup_gr').css({
+                    top:offsetDepartament.top+5,
+                    left:offsetDepartament.left-220
+                });
+                self.departamentBigImage(src);
+
+                self.getGroups(departement.id, function(result){
+                    self.groups(result);
+                });
+
+                self.symptoms([]);
+                self.selectedDepartamentId(departement.id);
+                self.selectedGroupId (null);
+            }
+
+            self.groupClick = function (data, event) {
+                event.stopPropagation();
+                var group = data;
+                var image = self.isMale() ? data.image : data.imageWoman;
+                //var src = image ? 'data:image/png;base64,' + image : '../Content/img/dummy.jpg'
+                var offsetDepartament = $(event.target).offset();
+                $('.popup_sym').css({
+                    top: offsetDepartament.top + 5,
+                    left: offsetDepartament.left - 220
+                });
+                //self.departamentBigImage(src);
+                self.coords(group.coordX + ',' + group.coordY + ',' + group.coordRadius);
+                self.getSymptoms(group.id, function (result) {
+                    self.symptoms(result);
+                });
+                self.selectedGroupId (group.id);
+            }
+
+            self.symptomClick = function (data, event) {
+                event.stopPropagation();
+                self.coords(data.coordX + ',' + data.coordY + ',' + data.coordRadius);
+                if (self.selectedSymptomsId().indexOf(data.id) == -1) {
+                    self.selectedSymptomsId.push(data.id);
+                } else {
+                    var index = self.selectedSymptomsId().indexOf(data.id);
+                    if (index > -1) {
+                        self.selectedSymptomsId().splice(index, 1);
+                        self.selectedSymptomsId.valueHasMutated();
+                    }
+                }
+                
+            }
+
+            self.getAnswerClick = function (data, event) {
+                var arr = [];
+                for (var i in data.selectedSymptomsId()) {
+                    var id = data.selectedSymptomsId()[i];
+                    arr.push({id:id});
+                }
+                if (arr.length != 0) {
+                    data.getFullAnswer(arr, function (data) {
+                        self.answers(data);
+                        self.generateAnswerView(true);
+                    });
+                } else {
+                    handleException("Выберите симптомы");
+                }
+                
+            }
+
+            //web callback
+
+            self.getFullAnswer = function (arr, callback) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/Neural/FullAnswer/',
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    contentType: 'application/json',
+                    data: JSON.stringify(arr),
+                    success: function (data) {
+                        //alert(data);
+                        typeof(callback)=="function"&&callback(data);
+                    },
+                    fail: function (data) {
+                        handleException(data);
+                    }
+                });
+            }
+
+            self.getDepartaments = function (callback) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Neural/Departaments?id=null',
+                    //async:false,
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    success: function (data) {
+                        //self.departaments(data);
+                        var res = [];
+                        for (var i in data) {
+                            var item = data[i];
+                            if (self.isMale()) {
+                                if (item.isMale) {
+                                    res.push(item);
+                                }
+                            }
+                            if (self.isFemale()) {
+                                if (item.isFemale) {
+                                    res.push(item);
+                                }
+                            }
+                        }
+                        typeof (callback) == 'function' && callback(res);
+                    },
+                    fail: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+
+            self.getGroups = function (idDep, callback) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Neural/Groups?id=null&idDepartament=' + idDep,
+                    async: false,
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    success: function (data) {
+                        //self.departaments(data);
+                        var res = [];
+                        for (var i in data) {
+                            var item = data[i];
+                            if (self.isMale()) {
+                                if (item.isMale) {
+                                    res.push(item);
+                                }
+                            }
+                            if (self.isFemale()) {
+                                if (item.isFemale) {
+                                    res.push(item);
+                                }
+                            }
+                        }
+                        typeof (callback) == 'function' && callback(res);
+                    },
+                    fail: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+
+            self.getSymptoms = function (idGr, callback) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Neural/Symptoms?id=null&idGroups=' + idGr,
+                    async: false,
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    success: function (data) {
+                        //self.departaments(data);
+                        var res = [];
+                        for (var i in data) {
+                            var item = data[i];
+                            if (self.isMale()) {
+                                if (item.isMale) {
+                                    res.push(item);
+                                }
+                            }
+                            if (self.isFemale()) {
+                                if (item.isFemale) {
+                                    res.push(item);
+                                }
+                            }
+                        }
+                        typeof (callback) == 'function' && callback(res);
+                    },
+                    fail: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+
+
+        }
+        var viewModel = new ViewModel();
+        viewModel.generateView();
+
+        ko.applyBindings(viewModel);
+    });
+
+</script>

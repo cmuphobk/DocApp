@@ -1,0 +1,38 @@
+﻿body {
+}
+.dialog{
+    width:100%;
+    font-size:20px;
+    color:rgb(30,30,30);
+    padding:5px 15px;
+}
+.message{
+    width:100%;
+    font-size:20px;
+    color:rgb(30,30,30);
+    padding:5px 15px;
+}
+button{
+    background-color: rgb(55,160,185);
+    border: none;
+    border-radius: 5px;
+    font-family: HelvetivaNeueCyr;
+    padding: 5px 0;
+    color: white;
+    outline: none;
+}
+input[type="text"]{
+    line-height: 1em;
+    border: 0;
+    border: 1px solid rgb(230,230,230);
+    background: #fff url(../img/arrow down.png) no-repeat;
+    background-size: 13px;
+    background-position: right 10px center;
+    font-family: HelvetivaNeueCyrL;
+    padding: 8px 30px 8px 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    outline: none;
+}

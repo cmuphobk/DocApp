@@ -1,0 +1,69 @@
+﻿
+.name_dep{
+    width: 100%;
+    border: 1px solid rgb(55,160,185);
+    border-radius: 5px;
+    padding: 6px 10px;
+    margin-bottom:10px;
+    outline:none;
+}
+.search{
+    border: solid 1px rgb(230,230,230);
+    border-radius: 0;
+    margin-bottom: 0;
+    width: 100%;
+    padding: 6px 10px;
+    outline:none;
+}
+.picker_groups, .picker_symptoms{
+    width:100%;
+}
+.group_check, .symptom_check{
+    width:80px;
+    text-align:center;
+}
+.picker_groups td, .picker_symptoms td{
+    border:solid 1px rgb(230,230,230);
+    padding: 5px 10px;
+}
+.save_button{
+    font-family: HelvetivaNeueCyr;
+    color: white;
+    background: rgb(55,160,185);
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 8px 40px;
+    margin-top: 20px;
+    outline:none;
+}
+#image, #imageBig, #imageBigWoman, #imageWoman{
+    height: 200px;
+    max-height: 200px;
+    min-height: 200px;
+    width: auto;
+}
+.text_area{
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid rgb(55,160,185);
+    border-radius: 5px;
+    padding: 6px 10px;
+    resize: none;
+}
+.image_label, .grab_label, h2{
+    width: 100%;
+    font-size: 20px;
+    font-family: HelvetivaNeueCyr;
+    font-weight:700;
+}
+.block_img{
+    display: inline-block;
+    width: 33%;
+}
+.isMaleLabel, .isFemaleLabel{
+    font-size: 20px;
+    font-family: HelvetivaNeueCyr;
+    margin:10px 0;
+}

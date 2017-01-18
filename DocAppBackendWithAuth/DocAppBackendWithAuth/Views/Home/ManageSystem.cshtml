@@ -1,0 +1,346 @@
+﻿
+@{
+    ViewBag.Title = "ManageSystem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section styles{
+    <link href="@Url.Content("~/Content/css/managesystem.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="container body-content">
+    <div class="first_section">
+        <div class="row s_row">
+            <div class="col-md-4">
+                <button class="system_create_button s_button" onclick="location.href='@Url.Action("ManageDepartament", "Home")'">Создать систему</button>
+            </div>
+            <div class="col-md-4">
+                <button class="group_create_button s_button" onclick="location.href='@Url.Action("ManageGroup", "Home")'">Создать группу</button>
+            </div>
+            <div class="col-md-4">
+                <button class="symptom_create_button s_button" data-bind="event:{click:function(data,event){editSymptom(false, data,event);}}">Создать симптом</button>
+            </div>
+        </div>
+        <div class="row s_row">
+            <div class="col-md-4">
+                <label class="systems_label">Система</label>
+            </div>
+            <div class="col-md-4">
+                <select class="systems_select" data-bind="options:departaments, optionsText:'name', value: selectedDepartament, event:{change:function(data,event){changeDepartament(data,event);}}">
+                    <option disabled selected>Выберите систему</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-6"><button class="system_edit_button s_button" data-bind="event:{click:function(data,event){editDepartament(data,event);}}"><span class="glyphicon glyphicon-edit"></span></button></div>
+                    <!--<div class="col-md-4"><button class="system_create_button s_button"><span class="glyphicon glyphicon-plus"></span></button></div>-->
+                    <div class="col-md-6"><button class="system_remove_button s_button"><span class="glyphicon glyphicon-remove"></span></button></div>
+                </div>
+            </div>
+        </div>
+        <div class="row s_row">
+            <div class="col-md-4">
+                <label class="systems_label">Группа</label>
+            </div>
+            <div class="col-md-4">
+                <select class="group_select" data-bind="options:groups, optionsText:'name', value: selectedGroup, event:{change:function(data,event){changeGroup(data,event);}}">
+                    <option disabled selected>Выберите группу</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-6"><button class="group_edit_button s_button" data-bind="event:{click:function(data,event){editGroup(data,event);}}"><span class="glyphicon glyphicon-edit"></span></button></div>
+                    <!--<div class="col-md-4"><button class="group_create_button s_button"><span class="glyphicon glyphicon-plus"></span></button></div>-->
+                    <div class="col-md-6"><button class="group_remove_button s_button"><span class="glyphicon glyphicon-remove"></span></button></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="systems_label">Симптом</label>
+            </div>
+            <div class="col-md-4">
+                <select class="symptom_select" data-bind="options:symptoms, optionsText:'name', value: selectedSymptom">
+                    <option disabled selected>Выберите симптом</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-6"><button class="symptom_edit_button s_button" data-bind="event:{click:function(data,event){editSymptom(true,data,event);}}"><span class="glyphicon glyphicon-edit"></span></button></div>
+                    <!--<div class="col-md-4"><button class="symptom_create_button s_button"><span class="glyphicon glyphicon-plus"></span></button></div>-->
+                    <div class="col-md-6"><button class="symptom_remove_button s_button"><span class="glyphicon glyphicon-remove"></span></button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="second_section">
+        <div class="row s_row">
+            <div class="col-md-4">
+                <button class="s_button" onclick="location.href='@Url.Action("ManageDiagnos", "Home")'">Создать диагноз</button>
+            </div>
+            <div class="col-md-8">
+                <button class="s_button" data-bind="event:{click: $root.study}">Обучение</button>
+            </div>
+        </div>
+        <div class="row s_row">
+            <div class="col-md-4">
+                <label class="systems_label">Диагноз</label>
+            </div>
+            <div class="col-md-4">
+                <select class="diagnos_select" data-bind="options:diagnoses, optionsText:'name', value: selectedDiagnos">
+                    <option disabled selected>Выберите диагноз</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-6"><button class="diagnos_edit_button s_button" data-bind="event:{click:function(data,event){editDiagnos(data,event);}}"><span class="glyphicon glyphicon-edit"></span></button></div>
+                    <!--<div class="col-md-4"><button class="group_create_button s_button"><span class="glyphicon glyphicon-plus"></span></button></div>-->
+                    <div class="col-md-6"><button class="diagnos_remove_button s_button"><span class="glyphicon glyphicon-remove"></span></button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="edit_symptom" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content" style="border-radius: 0;">
+            <div class="modal-body modal_body_exception">
+                <button type="button" class="close close_red" data-dismiss="modal">&times;</button>
+                <div class="body_symptom">
+                    <label class="header_symptom" data-bind="text:titleSymptom"></label>
+                    <input class="name_symptom" placeholder="Название" data-bind="value:selectedSymptomName, attr:{id:selectedSymptomId}" />
+
+                    <label for="isMale" class="isMaleLabel">Для мужчины</label>
+                    <input id="isMale" type="checkbox" data-bind="checked:isMale" />
+                    <label for="isFemale" class="isFemaleLabel">Для женщины</label>
+                    <input id="isFemale" type="checkbox" data-bind="checked:isFemale" />
+
+                    <button class="save_symptom" data-bind="event:{click:function(data,event){saveSymptom(data,event)}}" data-dismiss="modal">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        function ViewModel() {
+            var self = this;
+
+            self.departaments = ko.observableArray([]);
+            self.groups = ko.observableArray([]);
+            self.symptoms = ko.observableArray([]);
+            
+            self.diagnoses = ko.observableArray([]);
+
+            self.selectedDepartament = ko.observable();
+            self.selectedGroup = ko.observable();
+            self.selectedSymptom = ko.observable();
+
+            self.selectedDiagnos = ko.observable();
+
+            self.selectedSymptomId = ko.observable(null);
+            self.selectedSymptomName = ko.observable('');
+            self.titleSymptom = ko.observable();
+            self.isMale = ko.observable(false);
+            self.isFemale = ko.observable(false);
+
+            self.study = function (data, event) {
+                var href = '@Url.Action("Study", "Home")'
+                location.href = href + '?id=' + data.selectedDiagnos().id;
+            }
+
+            self.generateView = function () {
+                self.getDepartaments(function (result) {
+
+                    for (var i in result) {
+                        if (result[i].groups) {
+                            self.groups(result[i].groups);
+                        } else {
+                            self.groups([]);
+                        }
+
+                        for (var j in result[i].groups) {
+
+                            if (result[i].groups[j].symptoms) {
+                                self.symptoms(result[i].groups[j].symptoms);
+                            } else {
+                                self.symptoms([]);
+                            }
+
+                        }
+                    }
+
+                    self.departaments(result);
+
+                    self.selectedDepartament(self.departaments()[0]);
+                    self.selectedGroup(self.groups()[0]);
+                    self.selectedSymptom(self.symptoms()[0]);
+
+                });
+
+                self.getDiagnoses(function (result) {
+                    for (var i in result) {
+                        self.diagnoses.push(result[i]);
+                    }
+                });
+            }
+
+            self.editDepartament = function (data, event) {
+
+                var href = "@Url.Action("ManageDepartament", "Home")";
+                location.href = href + '?id=' + data.selectedDepartament().id;
+            }
+            self.editGroup = function (data, event) {
+
+                var href = "@Url.Action("ManageGroup", "Home")";
+                location.href = href + '?id=' + data.selectedGroup().id;
+            }
+            self.editDiagnos = function (data, event) {
+
+                var href = "@Url.Action("ManageDiagnos", "Home")";
+                location.href = href + '?id=' + data.selectedDiagnos().id;
+            }
+            self.editSymptom = function (isEdit, data, event) {
+                if (isEdit) {
+                    self.titleSymptom('Редактирование симптома');
+                    if (data.selectedSymptom()) {
+                        self.selectedSymptomId(data.selectedSymptom().id);
+                        self.selectedSymptomName(data.selectedSymptom().name);
+                        self.isMale(data.selectedSymptom().isMale);
+                        self.isFemale(data.selectedSymptom().isFemale);
+                        $('#edit_symptom').modal('show');
+                    }
+                } else {
+                    self.titleSymptom('Создание симптома');
+                    self.selectedSymptomId(null);
+                    self.selectedSymptomName('');
+                    self.isMale(false);
+                    self.isFemale(false);
+                    $('#edit_symptom').modal('show');
+                }
+                self.generateView();
+
+            }
+
+            self.saveSymptom = function (data, event) {
+                var model = {};
+                model.id = self.selectedSymptomId();
+                model.name = self.selectedSymptomName();
+                model.isMale = self.isMale();
+                model.isFemale = self.isFemale();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/Neural/Symptom',
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    contentType: 'application/json',
+                    data: JSON.stringify(model),
+                    success: function (data) {
+                        handleSuccess();
+                        self.selectedSymptomId(null);
+                        self.selectedSymptomName('');
+                        self.generateView();
+                    },
+                    fail: function (data) {
+                        handleException();
+                    }
+
+                });
+            }
+
+            self.changeDepartament = function (data, event) {
+                if (data.selectedDepartament()) {
+                    var groups = data.selectedDepartament().groups;
+                    data.groups(groups);
+                    if(groups[0]){
+                        data.selectedGroup(groups[0]);
+                        data.symptoms(groups[0].symptoms ? groups[0].symptoms : []);
+                        data.selectedSymptom(groups[0].symptoms[0] ? groups[0].symptoms[0] : null);
+                    } else {
+                        data.symptoms([]);
+                        data.selectedGroup(null);
+                        data.selectedSymptom(null);
+                    }
+                    
+                    
+                    data.selectedGroup.valueHasMutated();
+                }
+
+            }
+
+            self.changeGroup = function (data, event) {
+                if (data.selectedGroup()) {
+                    var symptoms = data.selectedGroup().symptoms;
+                    data.symptoms(symptoms ? symptoms : []);
+                    data.selectedSymptom(symptoms[0] ? symptoms[0] : null);
+                    data.selectedSymptom.valueHasMutated();
+                }
+            }
+
+            //web callback
+
+            self.getDepartaments = function (callback) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Neural/Departaments?id=null',
+                    //async:false,
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    success: function (data) {
+                        //self.departaments(data);
+                        typeof (callback) == 'function' && callback(data);
+                    },
+                    fail: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+
+            self.getDiagnoses = function (callback) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Neural/Diagnoses?id=null',
+                    //async:false,
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    success: function (data) {
+                        //self.departaments(data);
+                        typeof (callback) == 'function' && callback(data);
+                    },
+                    fail: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+
+
+            //remove
+            self.clickRemoveDepartament = function (data) {
+
+            };
+
+            self.clickRemoveGroup = function (data) {
+
+            };
+
+            self.clickRemoveSimptom = function (data) {
+
+            };
+        }
+        var viewModel = new ViewModel();
+        viewModel.generateView();
+
+        ko.applyBindings(viewModel);
+    });
+
+</script>

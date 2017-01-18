@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/cssbundle")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/signalR")
+    <script src="~/signalr/hubs"></script>
+    @RenderSection("styles", required: false)
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <img class="icon_img" src="~/Content/img/icon.jpg" />
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("DocApp", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Постановка диагноза", "UserDiagnos", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Административная панель", "ManageSystem", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Сообщения", "Index", "Chat", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+        @RenderBody()
+        <hr />
+    
+        <footer>
+            <div class="container">
+                <p>&copy; @DateTime.Now.Year – DocApp</p>
+            </div>
+        </footer>
+    
+    <div id="modal_success" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border-radius: 0;">
+                <div class="modal-body modal_body_success">
+                    <button type="button" class="close close_green" data-dismiss="modal">&times;</button>
+                    <div class="text_green">
+                        <label class="head_green">Успешно</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal_exception" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border-radius: 0;">
+                <div class="modal-body modal_body_exception">
+                    <button type="button" class="close close_red" data-dismiss="modal">&times;</button>
+                    <div class="text_red">
+                        <label class="head_red">Ошибка</label>
+                        <label id="modal_exception_text" class="head_red_s"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script>
+        var tokenKey = "tokenInfo";
+        var loginData = {
+            grant_type: 'password',
+            username: "Admin",
+            password: "123456"
+        };
+
+        function getCredentials(callback) {
+            $.ajax({
+                type: 'GET',
+                beforeSend: function (xhr) {
+                    var token = sessionStorage.getItem(tokenKey);
+                    xhr.setRequestHeader("Authorization", "Bearer " + token);
+                },
+                url: '/api/Account/Credentials',
+            }).success(function (data) {
+                typeof (callback) == "function" && callback(data);
+            });
+        }
+
+        function login() {
+            $.ajax({
+                type: 'POST',
+                url: '/Token',
+                data: loginData
+            }).success(function (data) {
+                // сохраняем в хранилище sessionStorage токен доступа
+                sessionStorage.setItem(tokenKey, data.access_token);
+            }).fail(function (data) {
+                handleException('При логине возникла ошибка');
+            });
+        }
+
+
+        function getUserInfo(callback, fail) {
+            $.ajax({
+                type: 'GET',
+                beforeSend: function (xhr) {
+                    var token = sessionStorage.getItem(tokenKey);
+                    xhr.setRequestHeader("Authorization", "Bearer " + token);
+                },
+                url: '/api/Account/UserInfo',
+            }).success(function (data) {
+                typeof (callback) == "function" && callback(data);
+            }).fail(function (data) {
+                //handleException('Вы не авторизованы');
+                typeof(fail)=="function"&&fail();
+            });
+        }
+
+        
+
+        function logout() {
+            e.preventDefault();
+            sessionStorage.removeItem(tokenKey);
+        }
+
+        function handleSuccess(message) {
+            $("#modal_success").modal('show');
+        }
+        function handleException(message) {
+            if (typeof (message) == "string") {
+                $('#modal_exception_text').text(message);
+                $("#modal_exception").modal('show');
+            } else {
+                $('#modal_exception_text').text('');
+                $("#modal_exception").modal('show');
+            }
+            
+        }
+
+
+        function _arrayBufferToBase64(buffer) {
+            var binary = '';
+            var bytes = new Uint8Array(buffer);
+            var len = bytes.byteLength;
+            for (var i = 0; i < len; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            return window.btoa(binary);
+        }
+
+        function _base64ToArrayBuffer(base64) {
+            var binary_string = window.atob(base64);
+            var len = binary_string.length;
+            var bytes = new Uint8Array(len);
+            for (var i = 0; i < len; i++) {
+                bytes[i] = binary_string.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+
+        $(document).ready(function () {     
+            getUserInfo(function(){
+                console.log("success");
+            },
+            function(){
+                login();
+            });
+        });
+    </script>
+</body>
+</html>

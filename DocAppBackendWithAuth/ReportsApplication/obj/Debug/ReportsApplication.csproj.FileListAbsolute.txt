@@ -1,0 +1,13 @@
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\ReportsApplication\bin\Debug\ReportsApplication.exe.config
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\ReportsApplication\bin\Debug\ReportsApplication.exe
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\ReportsApplication\bin\Debug\ReportsApplication.pdb
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\ReportsApplication\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\ReportsApplication\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\ReportsApplication\obj\Debug\ReportsApplication.csprojResolveAssemblyReference.cache
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\ReportsApplication\obj\Debug\ReportsApplication.Form1.resources
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\ReportsApplication\obj\Debug\ReportsApplication.Properties.Resources.resources
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\ReportsApplication\obj\Debug\ReportsApplication.csproj.GenerateResource.Cache
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\ReportsApplication\obj\Debug\RdlCompile.cache
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\ReportsApplication\obj\Debug\RdlCompile.compiled
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\ReportsApplication\obj\Debug\ReportsApplication.exe
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\ReportsApplication\obj\Debug\ReportsApplication.pdb

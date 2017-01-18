@@ -1,0 +1,1 @@
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Entity.Specification\obj\Release\Entity.Specifications.csprojResolveAssemblyReference.cache

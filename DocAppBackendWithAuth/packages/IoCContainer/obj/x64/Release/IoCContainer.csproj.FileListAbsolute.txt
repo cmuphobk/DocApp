@@ -1,0 +1,6 @@
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\x64\Release\DocAppBackendWithAuth.Common.IoCContainer.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\x64\Release\Ninject.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\x64\Release\Ninject.Extensions.Xml.dll
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\x64\Release\Ninject.xml
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\bin\x64\Release\Ninject.Extensions.Xml.xml
+C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\IoCContainer\obj\x64\Release\DocAppBackendWithAuth.Common.IoCContainer.dll

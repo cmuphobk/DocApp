@@ -1,0 +1,332 @@
+﻿@using DocAppBackendWithAuth.Models;
+@model UniversalViewModel
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <link href="@Url.Content("~/Content/css/managedepartament.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="container body-content">
+    <h2>@ViewBag.Title</h2>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <input type="text" class="name_dep" placeholder="Название" data-bind="value:name" />
+
+            <div class="block_img">
+                <label for="image" class="image_label">Маленькая картинка:</label>
+                <img id="image" />
+                <input id="file" type="file" accept="image/*" data-bind="event: { change: $root.fileUpload }" style="display:none;" />
+            </div>
+            <div class="block_img">
+                <label for="imageBig" class="image_label">Картинка для мужчины:</label>
+                <img id="imageBig" />
+                <input id="fileBig" type="file" accept="image/*" data-bind="event: { change: $root.fileBigUpload }" style="display:none;" />
+            </div>
+            <div class="block_img">
+                <label for="imageBigWoman" class="image_label">Картинка для женщины:</label>
+                <img id="imageBigWoman" />
+                <input id="fileBigWoman" type="file" accept="image/*" data-bind="event: { change: $root.fileBigWomanUpload }" style="display:none;" />
+            </div>
+            <label for="isMale" class="isMaleLabel">Для мужчины</label>
+            <input id="isMale" type="checkbox" data-bind="checked:isMale" />
+            <label for="isFemale" class="isFemaleLabel">Для женщины</label>
+            <input id="isFemale" type="checkbox" data-bind="checked:isFemale" />
+
+            <label class="grab_label">Выберите группы:</label>
+            <input class="search" type="text" placeholder="Поиск" data-bind="value:search, valueUpdate: 'afterkeydown', event:{'keyup':changeSearch}" />
+            <table class="picker_groups" data-bind="foreach:groups">
+
+                <tr class="group" data-bind="visible:visible">
+                    <td class="group_name">
+                        <label class="group_name_label" data-bind="text:name"></label>
+                    </td>
+                    <td class="group_check">
+                        <input type="checkbox" data-bind="checked:checked" />
+                    </td>
+                </tr>
+
+            </table>
+            <button class="save_button" data-bind="event:{click:function(data,event){saveEvent(data,event);}}">Сохранить</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        function ViewModel() {
+            var self = this;
+
+            self.curDep = ko.observable('');
+
+            self.modelId = "@(Model.id.HasValue?Model.id: null)";
+
+            self.name = ko.observable("@Model.name");
+            self.search = ko.observable('');
+            self.groups = ko.observableArray();
+
+            self.smallImageData = null;
+            self.bigImageData = null;
+            self.bigImageWomanData = null;
+
+
+            self.isMale = ko.observable(false);
+            self.isFemale = ko.observable(false);
+
+            self.changeSearch = function (data, event) {
+                for (var i in data.groups()) {
+                    if (data.groups()[i].name.indexOf(data.search()) != -1) {
+                        data.groups()[i].visible(true);
+                    } else {
+                        data.groups()[i].visible(false);
+                    }
+                    data.groups()[i].visible.valueHasMutated();
+                }
+            }
+
+            self.fileUpload = function (data, e) {
+
+                var file = e.target.files[0];
+                //var result = e.target.result;
+                var reader = new FileReader();
+                reader.readAsArrayBuffer(file);
+                reader.onload = function () {
+                    self.smallImageData = _arrayBufferToBase64(this.result);
+                };
+            }
+
+            self.fileBigUpload = function (data, e) {
+
+                var file = e.target.files[0];
+                //var result = e.target.result;
+                var reader = new FileReader();
+                reader.readAsArrayBuffer(file);
+                reader.onload = function () {
+                    self.bigImageData = _arrayBufferToBase64(this.result);
+                };
+            }
+            self.fileBigWomanUpload = function (data, e) {
+
+                var file = e.target.files[0];
+                //var result = e.target.result;
+                var reader = new FileReader();
+                reader.readAsArrayBuffer(file);
+                reader.onload = function () {
+                    self.bigImageWomanData = _arrayBufferToBase64(this.result);
+                };
+            }
+
+            self.saveEvent = function (data, event) {
+                var model = {};
+                model.id = self.modelId == "" ? null : self.modelId;
+                model.name = data.name();
+                model.smallImage = self.smallImageData;
+                model.bigImage = self.bigImageData;
+                model.bigImageWoman = self.bigImageWomanData;
+                model.groups = [];
+                model.isMale = self.isMale();
+                model.isFemale = self.isFemale();
+
+                for (var i in data.groups()) {
+                    if (data.groups()[i].checked()) {
+                        var group = {};
+                        group.id = data.groups()[i].id;
+                        group.name = data.groups()[i].name;
+                        model.groups.push(group);
+                    }
+                }
+
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/Neural/Departament',
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    contentType: 'application/json',
+                    data: JSON.stringify(model),
+                    success: function (data) {
+                        handleSuccess();
+                        location.href = "@Url.Action("ManageSystem", "Home")";
+                    },
+                    fail: function (data) {
+                        handleException();
+                    }
+                });
+
+            }
+
+
+            $('#image').click(function () {
+                $('#file').click();
+            });
+            $('#file').change(function () {
+                var path = URL.createObjectURL(this.files[0]);
+                $("#image").fadeIn("fast").attr('src', path);
+            });
+
+
+            $('#imageBig').click(function () {
+                $('#fileBig').click();
+            });
+            $('#fileBig').change(function () {
+                var path = URL.createObjectURL(this.files[0]);
+                $("#imageBig").fadeIn("fast").attr('src', path);
+            });
+
+            $('#imageBigWoman').click(function () {
+                $('#fileBigWoman').click();
+            });
+            $('#fileBigWoman').change(function () {
+                var path = URL.createObjectURL(this.files[0]);
+                $("#imageBigWoman").fadeIn("fast").attr('src', path);
+            });
+
+            self.generateView = function () {
+                self.getGroups(null, function (result) {
+                    var innerGroups = [];
+                    var idDep = self.modelId == "" ? null : self.modelId;
+                    if (idDep) {
+                        self.getDepartament(idDep, function (res) {
+                            self.curDep(res[0]);
+                            if (res[0].smallImage) {
+                                document.getElementById("image").src = "data:image/png;base64," + res[0].smallImage;
+                                self.smallImageData = res[0].smallImage;
+                            } else {
+                                document.getElementById("image").src = "../Content/img/dummy.jpg";
+                                self.smallImageData = null;
+                            }
+
+                            if (res[0].bigImage) {
+                                document.getElementById("imageBig").src = "data:image/png;base64," + res[0].bigImage;
+                                self.bigImageData = res[0].bigImage;
+                            } else {
+                                document.getElementById("imageBig").src = "../Content/img/dummy.jpg";
+                                self.bigImageData = null;
+                            }
+
+                            if (res[0].bigImageWoman) {
+                                document.getElementById("imageBigWoman").src = "data:image/png;base64," + res[0].bigImageWoman;
+                                self.bigImageWomanData = res[0].bigImageWoman;
+                            } else {
+                                document.getElementById("imageBigWoman").src = "../Content/img/dummy.jpg";
+                                self.bigImageWomanData = null;
+                            }
+
+                            if (res[0].isMale) {
+                                self.isMale(res[0].isMale);
+                            }
+
+                            if (res[0].isFemale) {
+                                self.isFemale(res[0].isFemale);
+                            }
+
+                        });
+                    } else {
+                        document.getElementById("image").src = "../Content/img/dummy.jpg";
+                        document.getElementById("imageBig").src = "../Content/img/dummy.jpg";
+                        document.getElementById("imageBigWoman").src = "../Content/img/dummy.jpg";
+                        self.smallImageData = null;
+                        self.bigImageData = null;
+                        self.bigImageWomanData = null;
+                    }
+
+                    if (idDep) {
+                        self.getGroups(idDep, function (resultInner) {
+                            innerGroups = resultInner;
+                            for (var i in result) {
+                                if (typeof (result[i].visible) != 'function') {
+                                    result[i].visible = ko.observable(true)
+                                } else {
+                                    result[i].visible(true)
+                                }
+                                var checked = false;
+                                for (var j in resultInner) {
+                                    if (resultInner[j].id == result[i].id) {
+                                        checked = true;
+                                        continue;
+                                    }
+                                }
+                                if (typeof (result[i].checked) != 'function') {
+                                    result[i].checked = ko.observable(checked)
+                                } else {
+                                    result[i].checked(checked)
+                                }
+
+                                self.groups.push(result[i]);
+                            }
+                        });
+                    } else {
+                        for (var i in result) {
+                            if (typeof (result[i].visible) != 'function') {
+                                result[i].visible = ko.observable(true)
+                            } else {
+                                result[i].visible(true)
+                            }
+                            if (typeof (result[i].checked) != 'function') {
+                                result[i].checked = ko.observable(false)
+                            } else {
+                                result[i].checked(false)
+                            }
+                            self.groups.push(result[i]);
+                        }
+                    }
+
+                });
+            }
+
+            //web callback
+
+            self.getDepartament = function (idDep, callback) {
+                idDep = idDep == "" ? null : idDep;
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Neural/Departaments?id=' + idDep,
+                    async: false,
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    success: function (data) {
+                        //self.departaments(data);
+                        typeof (callback) == 'function' && callback(data);
+
+                    },
+                    fail: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+
+            self.getGroups = function (idDep, callback) {
+                idDep = idDep == "" ? null : idDep;
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Neural/Groups?id=null&idDepartament=' + idDep,
+                    async: false,
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    success: function (data) {
+                        //self.departaments(data);
+                        typeof (callback) == 'function' && callback(data);
+                    },
+                    fail: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+
+        }
+        var viewModel = new ViewModel();
+        viewModel.generateView();
+
+        ko.applyBindings(viewModel);
+    });
+</script>

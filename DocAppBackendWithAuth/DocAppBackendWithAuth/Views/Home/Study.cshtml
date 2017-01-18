@@ -1,0 +1,122 @@
+﻿@using DocAppBackendWithAuth.Models;
+@model UniversalViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <link href="@Url.Content("~/Content/css/managedepartament.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="container body-content">
+    <h2>@ViewBag.Title</h2>
+    <label class="study_label">Имя:</label>
+    <label class="study_name_label" data-bind="text:modelName"></label>
+
+    <input class="search" type="text" placeholder="Поиск" data-bind="value:search, valueUpdate: 'afterkeydown', event:{'keyup':changeSearch}"/>
+    <table class="picker_symptoms" data-bind="foreach:symptoms">
+
+        <tr class="symptom" data-bind="visible:visible">
+            <td class="symptom_name">
+                <label class="symptom_name_label" data-bind="text:name"></label>
+            </td>
+            <td class="symptom_check">
+                <input type="checkbox" data-bind="checked:checked"/>
+            </td>
+        </tr>
+
+    </table>
+    <button class="save_button" data-bind="event:{click:function(data,event){saveEvent(data,event);}}">Обучить</button>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        function ViewModel() {
+            var self = this;
+
+            self.modelId = "@(Model.id.HasValue?Model.id: null)";
+
+            self.modelName = "@(Model.name)";
+
+            self.symptoms = ko.observableArray([]);
+
+            self.search = ko.observable('');
+
+            self.generateView = function () {
+                self.getSymptoms(function (result) {
+                    for (var i in result) {
+                        var item = result[i];
+                        item.checked = ko.observable(false);
+                        item.visible = ko.observable(true);
+                        self.symptoms.push(item);
+                    }
+                });
+            }
+
+            self.changeSearch = function (data, event) {
+                for (var i in data.symptoms()) {
+                    if (data.symptoms()[i].name.indexOf(data.search()) != -1) {
+                        data.symptoms()[i].visible(true);
+                    } else {
+                        data.symptoms()[i].visible(false);
+                    }
+                    data.symptoms()[i].visible.valueHasMutated();
+                }
+            }
+
+            self.saveEvent = function (data, event) {
+                var arr = [];
+                for (var i in data.symptoms()) {
+                    if (data.symptoms()[i].checked()) {
+                        arr.push(data.symptoms()[i]);
+                    }
+                }
+                data.study(data.modelId, arr);
+            }
+
+            self.study =  function (id, arr) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/Neural/Study/?id=' + id,
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    contentType: 'application/json',
+                    data: JSON.stringify(arr),
+                    success: function (data) {
+                        handleSuccess();
+                        location.href = "@Url.Action("ManageSystem", "Home")";
+                    },
+                    fail: function (data) {
+                        handleException(data);
+                    }
+                });
+            }
+
+            self.getSymptoms = function (callback) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Neural/Symptoms?id=null&idGroups=null',
+                    async: false,
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    success: function (data) {
+                        //self.departaments(data);
+                        typeof (callback) == 'function' && callback(data);
+                    },
+                    fail: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+        }
+        var viewModel = new ViewModel();
+        viewModel.generateView();
+
+        ko.applyBindings(viewModel);
+    });
+</script>

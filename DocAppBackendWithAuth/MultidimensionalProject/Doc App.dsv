@@ -1,0 +1,654 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="b9fdf63a-57d2-4b5e-b227-911c1acf4bd0" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Doc App</ID>
+  <Name>Doc App</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>Doc App</DataSourceID>
+  <Schema>
+    <xs:schema id="Doc_x0020_App" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="Doc_x0020_App" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="9856d783-13c0-43c7-abf3-da838aa9514f">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo___MigrationHistory" msprop:design-time-name="55788ad5-1597-4dae-8d35-f36f6526583d" msprop:DbTableName="__MigrationHistory" msprop:FriendlyName="__MigrationHistory" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="MigrationId" msprop:design-time-name="4f612113-47f4-4b7a-8423-f14a59353c05" msprop:DbColumnName="MigrationId" msprop:FriendlyName="MigrationId">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="150" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ContextKey" msprop:design-time-name="44f8e659-0045-4f22-9ac1-418bc76217da" msprop:DbColumnName="ContextKey" msprop:FriendlyName="ContextKey">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="300" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Model" msprop:design-time-name="f3c3b2cc-bff5-4447-bc1a-824f55909b19" msprop:DataSize="0" msprop:DbColumnName="Model" msprop:FriendlyName="Model" type="xs:base64Binary" />
+                  <xs:element name="ProductVersion" msprop:design-time-name="40dd1946-b389-4cfd-a5d6-b5104ba8c06c" msprop:DbColumnName="ProductVersion" msprop:FriendlyName="ProductVersion">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="32" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_AspNetRoles" msprop:design-time-name="f7c6004b-4355-4a74-8c58-a2af24ff6962" msprop:DbTableName="AspNetRoles" msprop:FriendlyName="AspNetRoles" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Id" msprop:design-time-name="bced72f4-6534-4fa3-81d9-a5f1fcdfa3e2" msprop:DbColumnName="Id" msprop:FriendlyName="Id">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="128" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Name" msprop:design-time-name="3da10c5f-fe4e-45e6-be40-1f5d56545908" msprop:DbColumnName="Name" msprop:FriendlyName="Name">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="256" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_AspNetUserClaims" msprop:design-time-name="2ad76f2f-73a4-44d0-aac1-e59e49706eb5" msprop:DbTableName="AspNetUserClaims" msprop:FriendlyName="AspNetUserClaims" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="93a4d172-b6e9-4fc9-8c45-fcc755608f0d" msprop:DbColumnName="Id" msprop:FriendlyName="Id" type="xs:int" />
+                  <xs:element name="UserId" msprop:design-time-name="cffabb90-3940-4a48-825e-e05ba604453e" msprop:DbColumnName="UserId" msprop:FriendlyName="UserId">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="128" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ClaimType" msprop:design-time-name="e2ab3030-229c-4d26-9c0d-ab5746d297ca" msprop:DbColumnName="ClaimType" msprop:FriendlyName="ClaimType" type="xs:string" minOccurs="0" />
+                  <xs:element name="ClaimValue" msprop:design-time-name="68dc4aa0-8078-4548-9925-23885a3b274e" msprop:DbColumnName="ClaimValue" msprop:FriendlyName="ClaimValue" type="xs:string" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_AspNetUserLogins" msprop:design-time-name="facbe53c-8b71-4f1d-8c08-5450e52683b7" msprop:DbTableName="AspNetUserLogins" msprop:FriendlyName="AspNetUserLogins" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="LoginProvider" msprop:design-time-name="79f25211-f6c9-492d-81ae-5f8afd37a021" msprop:DbColumnName="LoginProvider" msprop:FriendlyName="LoginProvider">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="128" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ProviderKey" msprop:design-time-name="32a8b2f0-5d0b-4640-8d87-7d531af8802d" msprop:DbColumnName="ProviderKey" msprop:FriendlyName="ProviderKey">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="128" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="UserId" msprop:design-time-name="9d3c26b6-c9d4-422a-8e09-e0e3b7593900" msprop:DbColumnName="UserId" msprop:FriendlyName="UserId">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="128" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_AspNetUserRoles" msprop:design-time-name="e86c35f8-9037-431e-a6ef-e120d8460291" msprop:DbTableName="AspNetUserRoles" msprop:FriendlyName="AspNetUserRoles" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="UserId" msprop:design-time-name="70ef5fc6-10be-46a6-9138-4e8278eff886" msprop:DbColumnName="UserId" msprop:FriendlyName="UserId">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="128" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="RoleId" msprop:design-time-name="787d188a-d1b3-4665-8279-2308494d0f84" msprop:DbColumnName="RoleId" msprop:FriendlyName="RoleId">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="128" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_AspNetUsers" msprop:design-time-name="8c8c367c-b811-44bc-959e-2af4f2ba04f3" msprop:DbTableName="AspNetUsers" msprop:FriendlyName="AspNetUsers" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Id" msprop:design-time-name="2332b963-8100-4d51-b23e-b76b72b87229" msprop:DbColumnName="Id" msprop:FriendlyName="Id">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="128" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Email" msprop:design-time-name="6f504d1c-bb1b-48ca-9492-3c88a1164680" msprop:DbColumnName="Email" msprop:FriendlyName="Email" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="256" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="EmailConfirmed" msprop:design-time-name="9098568c-af23-4011-af5e-4f80bdbb4a28" msprop:DbColumnName="EmailConfirmed" msprop:FriendlyName="EmailConfirmed" type="xs:boolean" />
+                  <xs:element name="PasswordHash" msprop:design-time-name="e5b14cf9-5788-4571-975c-accf24e3fada" msprop:DbColumnName="PasswordHash" msprop:FriendlyName="PasswordHash" type="xs:string" minOccurs="0" />
+                  <xs:element name="SecurityStamp" msprop:design-time-name="08ce18d0-e506-4391-b5a3-cbab3d891f15" msprop:DbColumnName="SecurityStamp" msprop:FriendlyName="SecurityStamp" type="xs:string" minOccurs="0" />
+                  <xs:element name="PhoneNumber" msprop:design-time-name="4ea0acb5-2fc7-44c8-b22b-f131e79f4137" msprop:DbColumnName="PhoneNumber" msprop:FriendlyName="PhoneNumber" type="xs:string" minOccurs="0" />
+                  <xs:element name="PhoneNumberConfirmed" msprop:design-time-name="5040ce21-659b-4361-a106-24ddfba53d35" msprop:DbColumnName="PhoneNumberConfirmed" msprop:FriendlyName="PhoneNumberConfirmed" type="xs:boolean" />
+                  <xs:element name="TwoFactorEnabled" msprop:design-time-name="7f99f70f-28cf-44d5-8014-4709f94233c4" msprop:DbColumnName="TwoFactorEnabled" msprop:FriendlyName="TwoFactorEnabled" type="xs:boolean" />
+                  <xs:element name="LockoutEndDateUtc" msprop:design-time-name="fe9ccfe0-e3c6-4957-b8d3-93a8c82fe5a6" msprop:DbColumnName="LockoutEndDateUtc" msprop:FriendlyName="LockoutEndDateUtc" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="LockoutEnabled" msprop:design-time-name="fde1f088-c131-4aec-b642-0b19ba7c56cb" msprop:DbColumnName="LockoutEnabled" msprop:FriendlyName="LockoutEnabled" type="xs:boolean" />
+                  <xs:element name="AccessFailedCount" msprop:design-time-name="4c05cdfc-84ce-4fed-81d5-dc43b7ea1933" msprop:DbColumnName="AccessFailedCount" msprop:FriendlyName="AccessFailedCount" type="xs:int" />
+                  <xs:element name="UserName" msprop:design-time-name="d76592da-88e5-46d5-aadf-3ef771981651" msprop:DbColumnName="UserName" msprop:FriendlyName="UserName">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="256" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_BaseUsers" msprop:design-time-name="95bf2f74-e7ef-48ca-98f2-17aa977bc6fd" msprop:DbTableName="BaseUsers" msprop:FriendlyName="BaseUsers" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="8c23093b-99e8-4f65-9391-316d2ab40f45" msprop:DbColumnName="Id" msprop:FriendlyName="Id" type="xs:int" />
+                  <xs:element name="Name" msprop:design-time-name="7e209dfa-0f20-4de4-bc36-c8c7929ace3e" msprop:DbColumnName="Name" msprop:FriendlyName="Name" type="xs:string" minOccurs="0" />
+                  <xs:element name="SecondName" msprop:design-time-name="847f2bc0-a169-4bc0-a7e8-e97cc361b590" msprop:DbColumnName="SecondName" msprop:FriendlyName="SecondName" type="xs:string" minOccurs="0" />
+                  <xs:element name="Surname" msprop:design-time-name="42f10017-ce17-4865-ad4e-f8ae1261db33" msprop:DbColumnName="Surname" msprop:FriendlyName="Surname" type="xs:string" minOccurs="0" />
+                  <xs:element name="IsDeleted" msprop:design-time-name="2e015593-e2a8-4a28-8850-07ec15a8785e" msprop:DbColumnName="IsDeleted" msprop:FriendlyName="IsDeleted" type="xs:boolean" />
+                  <xs:element name="User_Id" msprop:design-time-name="5bbb945c-7283-4ac8-b10d-8401a3a13602" msprop:DbColumnName="User_Id" msprop:FriendlyName="User_Id" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="128" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ConnectionId" msprop:design-time-name="cb36130d-b6a7-43a8-afa0-bcfa897e2986" msprop:DbColumnName="ConnectionId" msprop:FriendlyName="ConnectionId" type="xs:string" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Departaments" msprop:design-time-name="d44ef1cf-078f-473a-a95c-cc86456936af" msprop:DbTableName="Departaments" msprop:FriendlyName="Departaments" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="f02d4c78-b157-4f44-a2c6-8dbc9214234e" msprop:DbColumnName="id" msprop:FriendlyName="id" type="xs:int" />
+                  <xs:element name="name" msprop:design-time-name="402137ed-be82-466f-b29a-2b4887c338fe" msprop:DbColumnName="name" msprop:FriendlyName="name" type="xs:string" minOccurs="0" />
+                  <xs:element name="smallImage" msprop:design-time-name="703cc08f-284e-4c6c-836e-53882cae0476" msprop:DataSize="0" msprop:DbColumnName="smallImage" msprop:FriendlyName="smallImage" type="xs:base64Binary" minOccurs="0" />
+                  <xs:element name="bigImage" msprop:design-time-name="b9703a0e-2edf-44d7-a8a6-85aabaed259c" msprop:DataSize="0" msprop:DbColumnName="bigImage" msprop:FriendlyName="bigImage" type="xs:base64Binary" minOccurs="0" />
+                  <xs:element name="isMale" msprop:design-time-name="86c2c147-3cb3-48aa-8f4a-f3383b420244" msprop:DbColumnName="isMale" msprop:FriendlyName="isMale" type="xs:boolean" />
+                  <xs:element name="isFemale" msprop:design-time-name="35004ea4-cc70-4098-aeb5-b38d49d029be" msprop:DbColumnName="isFemale" msprop:FriendlyName="isFemale" type="xs:boolean" />
+                  <xs:element name="bigImageWoman" msprop:design-time-name="d27269d6-b863-4533-ba8c-61445d028085" msprop:DataSize="0" msprop:DbColumnName="bigImageWoman" msprop:FriendlyName="bigImageWoman" type="xs:base64Binary" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Diagnos" msprop:design-time-name="a84ec2a4-f8b4-4bfa-bd8f-3bd89d9ca58d" msprop:DbTableName="Diagnos" msprop:FriendlyName="Diagnos" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="5c1bd07a-cc57-48a3-a89a-72e38d400e42" msprop:DbColumnName="id" msprop:FriendlyName="id" type="xs:int" />
+                  <xs:element name="name" msprop:design-time-name="3a2e6273-5348-4bd4-bdcb-6909132a9d9c" msprop:DbColumnName="name" msprop:FriendlyName="name" type="xs:string" minOccurs="0" />
+                  <xs:element name="image" msprop:design-time-name="8c077d1f-6162-49ea-ab95-9082facaf1f3" msprop:DataSize="0" msprop:DbColumnName="image" msprop:FriendlyName="image" type="xs:base64Binary" minOccurs="0" />
+                  <xs:element name="descripton" msprop:design-time-name="270ca5f1-f602-490b-873a-1c01599de1bf" msprop:DbColumnName="descripton" msprop:FriendlyName="descripton" type="xs:string" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dialogs" msprop:design-time-name="3004afd8-3b3a-486a-a220-01cba193e142" msprop:DbTableName="Dialogs" msprop:FriendlyName="Dialogs" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="06de6247-3381-4d30-beb6-929b82aaee1e" msprop:DbColumnName="Id" msprop:FriendlyName="Id" type="xs:int" />
+                  <xs:element name="FirstUser_Id" msprop:design-time-name="2bf2ebbf-369c-4d83-a916-99ab5e10f1f2" msprop:DbColumnName="FirstUser_Id" msprop:FriendlyName="FirstUser_Id" type="xs:int" minOccurs="0" />
+                  <xs:element name="SecondUser_Id" msprop:design-time-name="4f675ce3-757a-418a-b36c-8667c9ffdf31" msprop:DbColumnName="SecondUser_Id" msprop:FriendlyName="SecondUser_Id" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Diseases" msprop:design-time-name="23fd0f65-8ff7-4494-8313-6b83a298714c" msprop:DbTableName="Diseases" msprop:FriendlyName="Diseases" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="10d789d5-9443-467f-ab26-3dac8bb68208" msprop:DbColumnName="Id" msprop:FriendlyName="Id" type="xs:int" />
+                  <xs:element name="Name" msprop:design-time-name="f7adc588-5c75-42d1-8f6d-6274d639d19d" msprop:DbColumnName="Name" msprop:FriendlyName="Name" type="xs:string" minOccurs="0" />
+                  <xs:element name="Card_Id" msprop:design-time-name="e6d21191-d4ef-4a3a-8c6f-37ed0b21cc56" msprop:DbColumnName="Card_Id" msprop:FriendlyName="Card_Id" type="xs:int" minOccurs="0" />
+                  <xs:element name="Diagnos_id" msprop:design-time-name="7c20c950-e25c-4906-9c66-b9aa855758aa" msprop:DbColumnName="Diagnos_id" msprop:FriendlyName="Diagnos_id" type="xs:int" minOccurs="0" />
+                  <xs:element name="Doctor_Id" msprop:design-time-name="f5b92fe1-183d-4b82-a416-5cb408d34917" msprop:DbColumnName="Doctor_Id" msprop:FriendlyName="Doctor_Id" type="xs:int" minOccurs="0" />
+                  <xs:element name="Patient_Id" msprop:design-time-name="c3d3aa43-d9f2-4970-bd39-3d92bb274348" msprop:DbColumnName="Patient_Id" msprop:FriendlyName="Patient_Id" type="xs:int" minOccurs="0" />
+                  <xs:element name="dateDisease" msprop:design-time-name="8edeeb81-abe9-4228-a9e5-f96a032eba68" msprop:DbColumnName="dateDisease" msprop:FriendlyName="dateDisease" type="xs:dateTime" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Doctors" msprop:design-time-name="959fe760-a6d1-4456-baed-5ce087a9f8be" msprop:DbTableName="Doctors" msprop:FriendlyName="Doctors" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="57d0ac34-3981-44ae-966d-532045c9deff" msprop:DbColumnName="Id" msprop:FriendlyName="Id" type="xs:int" />
+                  <xs:element name="Speciality" msprop:design-time-name="52cfea95-d42d-409e-a5fe-8600e04e7981" msprop:DbColumnName="Speciality" msprop:FriendlyName="Speciality" type="xs:string" minOccurs="0" />
+                  <xs:element name="Hospital_Id" msprop:design-time-name="9b6c2162-4e20-4965-92a1-6668312d626a" msprop:DbColumnName="Hospital_Id" msprop:FriendlyName="Hospital_Id" type="xs:int" minOccurs="0" />
+                  <xs:element name="User_Id" msprop:design-time-name="3ae6a92b-b66f-4ab8-af59-aabb509f2ff0" msprop:DbColumnName="User_Id" msprop:FriendlyName="User_Id" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Documents" msprop:design-time-name="02daf9ed-0fab-4211-9289-a995af773c7e" msprop:DbTableName="Documents" msprop:FriendlyName="Documents" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="d749062e-d05f-46d3-8289-ec8d6448eae2" msprop:DbColumnName="Id" msprop:FriendlyName="Id" type="xs:int" />
+                  <xs:element name="Name" msprop:design-time-name="e8b53056-9b34-4c4b-8939-d15d06d4e05d" msprop:DbColumnName="Name" msprop:FriendlyName="Name" type="xs:string" minOccurs="0" />
+                  <xs:element name="Bytes" msprop:design-time-name="bd45611f-ee84-4d14-a119-aa5734f96dcc" msprop:DataSize="0" msprop:DbColumnName="Bytes" msprop:FriendlyName="Bytes" type="xs:base64Binary" minOccurs="0" />
+                  <xs:element name="Message_Id" msprop:design-time-name="de585798-dbfa-4622-80ba-35aaac835a3d" msprop:DbColumnName="Message_Id" msprop:FriendlyName="Message_Id" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_GroupDepartaments" msprop:design-time-name="0c5f252b-88bb-4193-80f4-696025fb3a74" msprop:DbTableName="GroupDepartaments" msprop:FriendlyName="GroupDepartaments" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Group_id" msprop:design-time-name="7ca338c5-884d-490a-9b25-ba5b89d79f30" msprop:DbColumnName="Group_id" msprop:FriendlyName="Group_id" type="xs:int" />
+                  <xs:element name="Departament_id" msprop:design-time-name="acda9d60-b847-4576-8c93-5e1b99692100" msprop:DbColumnName="Departament_id" msprop:FriendlyName="Departament_id" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Groups" msprop:design-time-name="662fdcb7-c1bd-4092-bcd2-299943cc8ba8" msprop:DbTableName="Groups" msprop:FriendlyName="Groups" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="3ad4e5d1-39b8-4e31-8293-dfdd67c950ac" msprop:DbColumnName="id" msprop:FriendlyName="id" type="xs:int" />
+                  <xs:element name="name" msprop:design-time-name="8a212b5d-62d9-4042-b665-22a41f6b3fe6" msprop:DbColumnName="name" msprop:FriendlyName="name" type="xs:string" minOccurs="0" />
+                  <xs:element name="image" msprop:design-time-name="ebbb7f5b-0d82-4f88-8e56-2f865bed12cf" msprop:DataSize="0" msprop:DbColumnName="image" msprop:FriendlyName="image" type="xs:base64Binary" minOccurs="0" />
+                  <xs:element name="isMale" msprop:design-time-name="e8b26b35-e605-4824-8e51-1bcd629bb636" msprop:DbColumnName="isMale" msprop:FriendlyName="isMale" type="xs:boolean" />
+                  <xs:element name="isFemale" msprop:design-time-name="43978e7d-a13e-46fa-b3da-6b75728662f1" msprop:DbColumnName="isFemale" msprop:FriendlyName="isFemale" type="xs:boolean" />
+                  <xs:element name="imageWoman" msprop:design-time-name="53f2a05a-2492-461c-bf4d-b2504c55942c" msprop:DataSize="0" msprop:DbColumnName="imageWoman" msprop:FriendlyName="imageWoman" type="xs:base64Binary" minOccurs="0" />
+                  <xs:element name="coordX" msprop:design-time-name="ed33f4c7-4eaa-42d1-a5b0-6639d2b0a269" msprop:DbColumnName="coordX" msprop:FriendlyName="coordX" type="xs:int" />
+                  <xs:element name="coordY" msprop:design-time-name="398690c3-3397-4e27-a7b1-7fc56d12d478" msprop:DbColumnName="coordY" msprop:FriendlyName="coordY" type="xs:int" />
+                  <xs:element name="coordRadius" msprop:design-time-name="c80f13a5-eb89-4bcf-91b8-09397b60ae7e" msprop:DbColumnName="coordRadius" msprop:FriendlyName="coordRadius" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Hospitals" msprop:design-time-name="c4252265-87b1-4bc8-9038-c76b45d0850e" msprop:DbTableName="Hospitals" msprop:FriendlyName="Hospitals" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="21082fa9-257e-41be-b0ac-5f853f8c3e33" msprop:DbColumnName="Id" msprop:FriendlyName="Id" type="xs:int" />
+                  <xs:element name="Name" msprop:design-time-name="f191ccc3-0f16-4945-97c8-15a03ce2888c" msprop:DbColumnName="Name" msprop:FriendlyName="Name" type="xs:string" minOccurs="0" />
+                  <xs:element name="Type" msprop:design-time-name="da221e42-699c-415d-9b1a-b94de26e63de" msprop:DbColumnName="Type" msprop:FriendlyName="Type" type="xs:string" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Hrefs" msprop:design-time-name="31a651bc-8d64-4ecf-8d2c-72d46d21abbc" msprop:DbTableName="Hrefs" msprop:FriendlyName="Hrefs" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="247e0594-c50d-4c40-b952-fa48d67e6e5d" msprop:DbColumnName="Id" msprop:FriendlyName="Id" type="xs:int" />
+                  <xs:element name="Name" msprop:design-time-name="16cc509a-bbc1-42d8-8d66-274052767bfb" msprop:DbColumnName="Name" msprop:FriendlyName="Name" type="xs:string" minOccurs="0" />
+                  <xs:element name="Link" msprop:design-time-name="73a8b7f7-1aaf-415f-8cfe-9b9135bcb5e7" msprop:DbColumnName="Link" msprop:FriendlyName="Link" type="xs:string" minOccurs="0" />
+                  <xs:element name="Message_Id" msprop:design-time-name="bba0810c-3e7a-4f5d-9d3e-fbe7de3d4a4c" msprop:DbColumnName="Message_Id" msprop:FriendlyName="Message_Id" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Images" msprop:design-time-name="874faf3d-8de4-4d16-8928-90b49cf5e7cc" msprop:DbTableName="Images" msprop:FriendlyName="Images" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="e37cfbe3-0c30-462e-ac5b-aeb711f98b28" msprop:DbColumnName="Id" msprop:FriendlyName="Id" type="xs:int" />
+                  <xs:element name="Name" msprop:design-time-name="dac1d287-31eb-414f-81ab-27ebf7700d32" msprop:DbColumnName="Name" msprop:FriendlyName="Name" type="xs:string" minOccurs="0" />
+                  <xs:element name="Bytes" msprop:design-time-name="63feb5c5-4595-4511-9283-28c07e6fd5ea" msprop:DataSize="0" msprop:DbColumnName="Bytes" msprop:FriendlyName="Bytes" type="xs:base64Binary" minOccurs="0" />
+                  <xs:element name="Message_Id" msprop:design-time-name="0c2af5be-6a57-4aea-9717-2ebafaf862fb" msprop:DbColumnName="Message_Id" msprop:FriendlyName="Message_Id" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Messages" msprop:design-time-name="23e95598-b950-4ef7-9b79-693885ae0034" msprop:DbTableName="Messages" msprop:FriendlyName="Messages" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="1a554be7-5262-4264-86bd-92dd12ae3071" msprop:DbColumnName="Id" msprop:FriendlyName="Id" type="xs:int" />
+                  <xs:element name="Text" msprop:design-time-name="7a9feb5d-206c-4c78-862f-5099ad532ff2" msprop:DbColumnName="Text" msprop:FriendlyName="Text" type="xs:string" minOccurs="0" />
+                  <xs:element name="Dialog_Id" msprop:design-time-name="6ee652f3-6f5d-431d-9a5a-c316a5f4c85d" msprop:DbColumnName="Dialog_Id" msprop:FriendlyName="Dialog_Id" type="xs:int" minOccurs="0" />
+                  <xs:element name="sender_Id" msprop:design-time-name="e75ec68f-e68a-4b52-8697-c0a218a02613" msprop:DbColumnName="sender_Id" msprop:FriendlyName="sender_Id" type="xs:int" minOccurs="0" />
+                  <xs:element name="DateTimeSend" msprop:design-time-name="0af6bce8-1bd8-4a37-8b0e-1020ea1e3d84" msprop:DbColumnName="DateTimeSend" msprop:FriendlyName="DateTimeSend" type="xs:dateTime" />
+                  <xs:element name="Year" msprop:design-time-name="420ea766-eccc-4b41-8de0-82544ab34949" msprop:DbColumnName="Year" msprop:FriendlyName="Year" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_OutpatientCards" msprop:design-time-name="43531965-0fb0-447b-973d-9fc3e752290e" msprop:DbTableName="OutpatientCards" msprop:FriendlyName="OutpatientCards" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="747cb040-be84-4f44-88e6-c111e580a1fa" msprop:DbColumnName="Id" msprop:FriendlyName="Id" type="xs:int" />
+                  <xs:element name="Patient_Id" msprop:design-time-name="85e02358-87d3-4084-be70-d7768daafa8f" msprop:DbColumnName="Patient_Id" msprop:FriendlyName="Patient_Id" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Patients" msprop:design-time-name="87039cbf-c5b0-4fdf-a26f-345bcde426a3" msprop:DbTableName="Patients" msprop:FriendlyName="Patients" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="efde4a49-d224-4db0-9fd7-8391adf4cf86" msprop:DbColumnName="Id" msprop:FriendlyName="Id" type="xs:int" />
+                  <xs:element name="User_Id" msprop:design-time-name="229d8d54-4e64-4674-8d1a-4022ad87b809" msprop:DbColumnName="User_Id" msprop:FriendlyName="User_Id" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Recalls" msprop:design-time-name="90061c8b-8adc-46f1-8b6f-d59526e86422" msprop:DbTableName="Recalls" msprop:FriendlyName="Recalls" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="fb4d6a21-adca-485b-a7b1-fb0028222e61" msprop:DbColumnName="Id" msprop:FriendlyName="Id" type="xs:int" />
+                  <xs:element name="caller_Id" msprop:design-time-name="ba89ce27-eec9-4fa1-b469-63109f25ae22" msprop:DbColumnName="caller_Id" msprop:FriendlyName="caller_Id" type="xs:int" minOccurs="0" />
+                  <xs:element name="doctor_Id" msprop:design-time-name="e24ed53a-b190-4821-971c-032507449e50" msprop:DbColumnName="doctor_Id" msprop:FriendlyName="doctor_Id" type="xs:int" minOccurs="0" />
+                  <xs:element name="hospital_Id" msprop:design-time-name="7f288505-66b8-4a0d-bec7-468e301afd89" msprop:DbColumnName="hospital_Id" msprop:FriendlyName="hospital_Id" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_SymptomGroups" msprop:design-time-name="19d9de48-222b-45b8-b777-e320cae7deb0" msprop:DbTableName="SymptomGroups" msprop:FriendlyName="SymptomGroups" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Symptom_id" msprop:design-time-name="d491b61b-9b3d-4823-aff5-8911184619d7" msprop:DbColumnName="Symptom_id" msprop:FriendlyName="Symptom_id" type="xs:int" />
+                  <xs:element name="Group_id" msprop:design-time-name="2ba7330f-aeed-4a8f-b0b8-420cc116c994" msprop:DbColumnName="Group_id" msprop:FriendlyName="Group_id" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Symptoms" msprop:design-time-name="bdb8ecd0-e1fe-4f39-b431-1a4a5a3ace5e" msprop:DbTableName="Symptoms" msprop:FriendlyName="Symptoms" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="07e75478-c353-4728-9b58-3f18abe321e2" msprop:DbColumnName="id" msprop:FriendlyName="id" type="xs:int" />
+                  <xs:element name="name" msprop:design-time-name="bc32c2ba-9d5a-4549-9637-68d4900647bd" msprop:DbColumnName="name" msprop:FriendlyName="name" type="xs:string" minOccurs="0" />
+                  <xs:element name="isMale" msprop:design-time-name="9eff2445-001b-43a5-8144-ba91dbdc3a9f" msprop:DbColumnName="isMale" msprop:FriendlyName="isMale" type="xs:boolean" />
+                  <xs:element name="isFemale" msprop:design-time-name="5eed8c6c-d73a-40f3-b2f4-3ef687eb4091" msprop:DbColumnName="isFemale" msprop:FriendlyName="isFemale" type="xs:boolean" />
+                  <xs:element name="coordX" msprop:design-time-name="522eb007-c952-4d96-966a-5733d304a274" msprop:DbColumnName="coordX" msprop:FriendlyName="coordX" type="xs:int" />
+                  <xs:element name="coordY" msprop:design-time-name="3fc4b3d4-fb58-477f-9c31-6f6c70fd6193" msprop:DbColumnName="coordY" msprop:FriendlyName="coordY" type="xs:int" />
+                  <xs:element name="coordRadius" msprop:design-time-name="b7fab3d9-b95e-462c-a1ed-4e6ed3efa35d" msprop:DbColumnName="coordRadius" msprop:FriendlyName="coordRadius" type="xs:int" />
+                  <xs:element name="Disease_Id" msprop:design-time-name="a3e4e364-36f5-4695-bf9c-aedf43f037f0" msprop:DbColumnName="Disease_Id" msprop:FriendlyName="Disease_Id" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_sysdiagrams" msprop:design-time-name="a230b288-dcd9-4895-b5fe-86fbee75553d" msprop:DbTableName="sysdiagrams" msprop:FriendlyName="sysdiagrams" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="name" msprop:design-time-name="4efe3dbe-4585-48a8-bd72-86313346557b" msprop:DbColumnName="name" msprop:FriendlyName="name">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="128" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="principal_id" msprop:design-time-name="af3a7d70-1d27-4925-86b8-99d8e8aa6c36" msprop:DbColumnName="principal_id" msprop:FriendlyName="principal_id" type="xs:int" />
+                  <xs:element name="diagram_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="c446d29d-d64c-4600-9c4f-c67f67cd6f12" msprop:DbColumnName="diagram_id" msprop:FriendlyName="diagram_id" type="xs:int" />
+                  <xs:element name="version" msprop:design-time-name="29f462b1-6bc6-4358-a091-2e8272366f30" msprop:DbColumnName="version" msprop:FriendlyName="version" type="xs:int" minOccurs="0" />
+                  <xs:element name="definition" msprop:design-time-name="51145c6b-044f-43d0-85c7-d11bbf16e628" msprop:DataSize="0" msprop:DbColumnName="definition" msprop:FriendlyName="definition" type="xs:base64Binary" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Weights" msprop:design-time-name="8f147e98-88e4-48a4-be77-01f9ac5c73f8" msprop:DbTableName="Weights" msprop:FriendlyName="Weights" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="6e4d4720-d539-4378-b6d0-75cdfdaf32ab" msprop:DbColumnName="id" msprop:FriendlyName="id" type="xs:int" />
+                  <xs:element name="Value" msprop:design-time-name="bda5e84c-6ff9-41ab-ae87-af3c16720c05" msprop:DbColumnName="Value" msprop:FriendlyName="Value" type="xs:int" />
+                  <xs:element name="Key_id" msprop:design-time-name="ade693b2-2bfb-4774-af94-aa246c208331" msprop:DbColumnName="Key_id" msprop:FriendlyName="Key_id" type="xs:int" minOccurs="0" />
+                  <xs:element name="Diagnos_id" msprop:design-time-name="01aceaea-7a71-4e32-bb68-361cd3f53adc" msprop:DbColumnName="Diagnos_id" msprop:FriendlyName="Diagnos_id" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo___MigrationHistory" />
+          <xs:field xpath="MigrationId" />
+          <xs:field xpath="ContextKey" />
+        </xs:unique>
+        <xs:unique name="dbo_AspNetRoles_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_AspNetRoles" />
+          <xs:field xpath="Id" />
+        </xs:unique>
+        <xs:unique name="dbo_AspNetUserClaims_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_AspNetUserClaims" />
+          <xs:field xpath="Id" />
+        </xs:unique>
+        <xs:unique name="dbo_AspNetUserLogins_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_AspNetUserLogins" />
+          <xs:field xpath="LoginProvider" />
+          <xs:field xpath="ProviderKey" />
+          <xs:field xpath="UserId" />
+        </xs:unique>
+        <xs:unique name="dbo_AspNetUserRoles_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_AspNetUserRoles" />
+          <xs:field xpath="UserId" />
+          <xs:field xpath="RoleId" />
+        </xs:unique>
+        <xs:unique name="dbo_AspNetUsers_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_AspNetUsers" />
+          <xs:field xpath="Id" />
+        </xs:unique>
+        <xs:unique name="dbo_BaseUsers_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_BaseUsers" />
+          <xs:field xpath="Id" />
+        </xs:unique>
+        <xs:unique name="dbo_Departaments_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Departaments" />
+          <xs:field xpath="id" />
+        </xs:unique>
+        <xs:unique name="dbo_Diagnos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Diagnos" />
+          <xs:field xpath="id" />
+        </xs:unique>
+        <xs:unique name="dbo_Dialogs_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dialogs" />
+          <xs:field xpath="Id" />
+        </xs:unique>
+        <xs:unique name="dbo_Diseases_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Diseases" />
+          <xs:field xpath="Id" />
+        </xs:unique>
+        <xs:unique name="dbo_Doctors_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Doctors" />
+          <xs:field xpath="Id" />
+        </xs:unique>
+        <xs:unique name="dbo_Documents_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Documents" />
+          <xs:field xpath="Id" />
+        </xs:unique>
+        <xs:unique name="dbo_GroupDepartaments_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_GroupDepartaments" />
+          <xs:field xpath="Group_id" />
+          <xs:field xpath="Departament_id" />
+        </xs:unique>
+        <xs:unique name="dbo_Groups_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Groups" />
+          <xs:field xpath="id" />
+        </xs:unique>
+        <xs:unique name="dbo_Hospitals_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Hospitals" />
+          <xs:field xpath="Id" />
+        </xs:unique>
+        <xs:unique name="dbo_Hrefs_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Hrefs" />
+          <xs:field xpath="Id" />
+        </xs:unique>
+        <xs:unique name="dbo_Images_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Images" />
+          <xs:field xpath="Id" />
+        </xs:unique>
+        <xs:unique name="dbo_Messages_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Messages" />
+          <xs:field xpath="Id" />
+        </xs:unique>
+        <xs:unique name="dbo_OutpatientCards_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_OutpatientCards" />
+          <xs:field xpath="Id" />
+        </xs:unique>
+        <xs:unique name="dbo_Patients_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Patients" />
+          <xs:field xpath="Id" />
+        </xs:unique>
+        <xs:unique name="dbo_Recalls_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Recalls" />
+          <xs:field xpath="Id" />
+        </xs:unique>
+        <xs:unique name="dbo_SymptomGroups_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_SymptomGroups" />
+          <xs:field xpath="Symptom_id" />
+          <xs:field xpath="Group_id" />
+        </xs:unique>
+        <xs:unique name="dbo_Symptoms_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Symptoms" />
+          <xs:field xpath="id" />
+        </xs:unique>
+        <xs:unique name="dbo_sysdiagrams_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_sysdiagrams" />
+          <xs:field xpath="diagram_id" />
+        </xs:unique>
+        <xs:unique name="dbo_Weights_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Weights" />
+          <xs:field xpath="id" />
+        </xs:unique>
+        <xs:keyref name="FK_dbo.Weights_dbo.Diagnos_Diagnos_id" refer="dbo_Diagnos_Constraint1">
+          <xs:selector xpath=".//dbo_Weights" />
+          <xs:field xpath="Diagnos_id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Weights_dbo.Symptoms_Key_id" refer="dbo_Symptoms_Constraint1">
+          <xs:selector xpath=".//dbo_Weights" />
+          <xs:field xpath="Key_id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Symptoms_dbo.Diseases_Disease_Id" refer="dbo_Diseases_Constraint1">
+          <xs:selector xpath=".//dbo_Symptoms" />
+          <xs:field xpath="Disease_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.SymptomGroups_dbo.Symptoms_Symptom_id" refer="dbo_Symptoms_Constraint1">
+          <xs:selector xpath=".//dbo_SymptomGroups" />
+          <xs:field xpath="Symptom_id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.SymptomGroups_dbo.Groups_Group_id" refer="dbo_Groups_Constraint1">
+          <xs:selector xpath=".//dbo_SymptomGroups" />
+          <xs:field xpath="Group_id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Recalls_dbo.BaseUsers_caller_Id" refer="dbo_BaseUsers_Constraint1">
+          <xs:selector xpath=".//dbo_Recalls" />
+          <xs:field xpath="caller_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Recalls_dbo.Hospitals_hospital_Id" refer="dbo_Hospitals_Constraint1">
+          <xs:selector xpath=".//dbo_Recalls" />
+          <xs:field xpath="hospital_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Recalls_dbo.Doctors_doctor_Id" refer="dbo_Doctors_Constraint1">
+          <xs:selector xpath=".//dbo_Recalls" />
+          <xs:field xpath="doctor_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Patients_dbo.BaseUsers_User_Id" refer="dbo_BaseUsers_Constraint1">
+          <xs:selector xpath=".//dbo_Patients" />
+          <xs:field xpath="User_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.OutpatientCards_dbo.Patients_Patient_Id" refer="dbo_Patients_Constraint1">
+          <xs:selector xpath=".//dbo_OutpatientCards" />
+          <xs:field xpath="Patient_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Messages_dbo.Dialogs_Dialog_Id" refer="dbo_Dialogs_Constraint1">
+          <xs:selector xpath=".//dbo_Messages" />
+          <xs:field xpath="Dialog_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Messages_dbo.BaseUsers_sender_Id" refer="dbo_BaseUsers_Constraint1">
+          <xs:selector xpath=".//dbo_Messages" />
+          <xs:field xpath="sender_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Images_dbo.Messages_Message_Id" refer="dbo_Messages_Constraint1">
+          <xs:selector xpath=".//dbo_Images" />
+          <xs:field xpath="Message_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Hrefs_dbo.Messages_Message_Id" refer="dbo_Messages_Constraint1">
+          <xs:selector xpath=".//dbo_Hrefs" />
+          <xs:field xpath="Message_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.GroupDepartaments_dbo.Departaments_Departament_id" refer="dbo_Departaments_Constraint1">
+          <xs:selector xpath=".//dbo_GroupDepartaments" />
+          <xs:field xpath="Departament_id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.GroupDepartaments_dbo.Groups_Group_id" refer="dbo_Groups_Constraint1">
+          <xs:selector xpath=".//dbo_GroupDepartaments" />
+          <xs:field xpath="Group_id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Documents_dbo.Messages_Message_Id" refer="dbo_Messages_Constraint1">
+          <xs:selector xpath=".//dbo_Documents" />
+          <xs:field xpath="Message_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Doctors_dbo.BaseUsers_User_Id" refer="dbo_BaseUsers_Constraint1">
+          <xs:selector xpath=".//dbo_Doctors" />
+          <xs:field xpath="User_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Doctors_dbo.Hospitals_Hospital_Id" refer="dbo_Hospitals_Constraint1">
+          <xs:selector xpath=".//dbo_Doctors" />
+          <xs:field xpath="Hospital_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Diseases_dbo.Diagnos_Diagnos_id" refer="dbo_Diagnos_Constraint1">
+          <xs:selector xpath=".//dbo_Diseases" />
+          <xs:field xpath="Diagnos_id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Diseases_dbo.Doctors_Doctor_Id" refer="dbo_Doctors_Constraint1">
+          <xs:selector xpath=".//dbo_Diseases" />
+          <xs:field xpath="Doctor_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Diseases_dbo.Patients_Patient_Id" refer="dbo_Patients_Constraint1">
+          <xs:selector xpath=".//dbo_Diseases" />
+          <xs:field xpath="Patient_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Diseases_dbo.OutpatientCards_Card_Id" refer="dbo_OutpatientCards_Constraint1">
+          <xs:selector xpath=".//dbo_Diseases" />
+          <xs:field xpath="Card_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Dialogs_dbo.BaseUsers_FirstUser_Id" refer="dbo_BaseUsers_Constraint1">
+          <xs:selector xpath=".//dbo_Dialogs" />
+          <xs:field xpath="FirstUser_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.Dialogs_dbo.BaseUsers_SecondUser_Id" refer="dbo_BaseUsers_Constraint1">
+          <xs:selector xpath=".//dbo_Dialogs" />
+          <xs:field xpath="SecondUser_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.BaseUsers_dbo.AspNetUsers_User_Id" refer="dbo_AspNetUsers_Constraint1">
+          <xs:selector xpath=".//dbo_BaseUsers" />
+          <xs:field xpath="User_Id" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId" refer="dbo_AspNetUsers_Constraint1">
+          <xs:selector xpath=".//dbo_AspNetUserRoles" />
+          <xs:field xpath="UserId" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.AspNetUserRoles_dbo.AspNetRoles_RoleId" refer="dbo_AspNetRoles_Constraint1">
+          <xs:selector xpath=".//dbo_AspNetUserRoles" />
+          <xs:field xpath="RoleId" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.AspNetUserLogins_dbo.AspNetUsers_UserId" refer="dbo_AspNetUsers_Constraint1">
+          <xs:selector xpath=".//dbo_AspNetUserLogins" />
+          <xs:field xpath="UserId" />
+        </xs:keyref>
+        <xs:keyref name="FK_dbo.AspNetUserClaims_dbo.AspNetUsers_UserId" refer="dbo_AspNetUsers_Constraint1">
+          <xs:selector xpath=".//dbo_AspNetUserClaims" />
+          <xs:field xpath="UserId" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <Doc_x0020_App xmlns="" />
+  </Schema>
+</DataSourceView>

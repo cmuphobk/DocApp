@@ -1,0 +1,292 @@
+﻿@using DocAppBackendWithAuth.Models;
+@model UniversalViewModel
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <link href="@Url.Content("~/Content/css/managedepartament.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="container body-content">
+    <h2>@ViewBag.Title</h2>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <input type="text" class="name_dep" placeholder="Название" data-bind="value:name" />
+
+            <div class="block_img">
+                <label for="image" class="image_label">Картинка для мужчины:</label>
+                <img id="image" />
+                <input id="file" type="file" accept="image/*" data-bind="event: { change: $root.fileUpload }" style="display:none;" />
+            </div>
+            <div class="block_img">
+                <label for="imageWoman" class="image_label">Картинка для женщины:</label>
+                <img id="imageWoman" />
+                <input id="fileWoman" type="file" accept="image/*" data-bind="event: { change: $root.fileWomanUpload }" style="display:none;" />
+            </div>
+            <label for="isMale" class="isMaleLabel">Для мужчины</label>
+            <input id="isMale" type="checkbox" data-bind="checked:isMale" />
+            <label for="isFemale" class="isFemaleLabel">Для женщины</label>
+            <input id="isFemale" type="checkbox" data-bind="checked:isFemale" />
+
+            <label class="grab_label">Выберите симптомы:</label>
+            <input class="search" type="text" placeholder="Поиск" data-bind="value:search, valueUpdate: 'afterkeydown', event:{'keyup':changeSearch}" />
+            <table class="picker_groups" data-bind="foreach:symptoms">
+
+                <tr class="group" data-bind="visible:visible">
+                    <td class="group_name">
+                        <label class="group_name_label" data-bind="text:name"></label>
+                    </td>
+                    <td class="group_check">
+                        <input type="checkbox" data-bind="checked:checked" />
+                    </td>
+                </tr>
+
+            </table>
+            <button class="save_button" data-bind="event:{click:function(data,event){saveEvent(data,event);}}">Сохранить</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        function ViewModel() {
+            var self = this;
+
+            self.modelId = "@(Model.id.HasValue?Model.id: null)";
+
+            self.name = ko.observable("@Model.name");
+            self.search = ko.observable('');
+            self.symptoms = ko.observableArray();
+
+            self.imageData = null;
+            self.imageWomanData = null;
+
+            self.isMale = ko.observable(false);
+            self.isFemale = ko.observable(false);
+
+            self.changeSearch = function (data, event) {
+                for (var i in data.symptoms()) {
+                    if (data.symptoms()[i].name.indexOf(data.search()) != -1) {
+                        data.symptoms()[i].visible(true);
+                    } else {
+                        data.symptoms()[i].visible(false);
+                    }
+                    data.symptoms()[i].visible.valueHasMutated();
+                }
+            }
+
+            self.fileUpload = function (data, e) {
+
+                var file = e.target.files[0];
+                //var result = e.target.result;
+                var reader = new FileReader();
+                reader.readAsArrayBuffer(file);
+                reader.onload = function () {
+                    self.imageData = _arrayBufferToBase64(this.result);
+                };
+            }
+
+            self.fileWomanUpload = function (data, e) {
+
+                var file = e.target.files[0];
+                //var result = e.target.result;
+                var reader = new FileReader();
+                reader.readAsArrayBuffer(file);
+                reader.onload = function () {
+                    self.imageWomanData = _arrayBufferToBase64(this.result);
+                };
+            }
+
+            self.saveEvent = function (data, event) {
+                var model = {};
+                model.id = self.modelId == "" ? null : self.modelId;
+                model.name = data.name();
+                model.symptoms = [];
+                model.image = self.imageData;
+                model.isMale = self.isMale();
+                model.isFemale = self.isFemale();
+                model.imageWoman = self.imageWomanData;
+
+                for (var i in data.symptoms()) {
+                    if (data.symptoms()[i].checked()) {
+                        var symptom = {};
+                        symptom.id = data.symptoms()[i].id;
+                        symptom.name = data.symptoms()[i].name;
+                        model.symptoms.push(symptom);
+                    }
+                }
+
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/Neural/Group',
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    contentType: 'application/json',
+                    data: JSON.stringify(model),
+                    success: function (data) {
+                        handleSuccess();
+                        location.href = "@Url.Action("ManageSystem", "Home")";
+                    },
+                    fail: function (data) {
+                        handleException();
+                    }
+                });
+
+            }
+
+            $('#image').click(function () {
+                $('#file').click();
+            });
+            $('#file').change(function () {
+                var path = URL.createObjectURL(this.files[0]);
+                $("#image").fadeIn("fast").attr('src', path);
+            });
+
+            $('#imageWoman').click(function () {
+                $('#fileWoman').click();
+            });
+            $('#fileWoman').change(function () {
+                var path = URL.createObjectURL(this.files[0]);
+                $("#imageWoman").fadeIn("fast").attr('src', path);
+            });
+
+            self.generateView = function () {
+                self.getSymptoms(null, function (result) {
+                    var innersSymptoms = [];
+                    var idGr = self.modelId == "" ? null : self.modelId;
+                    if (idGr) {
+                        self.getGroup(idGr, function (res) {
+                            //self.curDep(res[0]);
+                            if (res[0].image) {
+                                document.getElementById("image").src = "data:image/png;base64," + res[0].image;
+                                self.imageData = res[0].image;
+                            } else {
+                                document.getElementById("image").src = "../Content/img/dummy.jpg";
+                                self.imageData = null;
+                            }
+                            if (res[0].imageWoman) {
+                                document.getElementById("imageWoman").src = "data:image/png;base64," + res[0].imageWoman;
+                                self.imageWomanData = res[0].imageWoman;
+                            } else {
+                                document.getElementById("imageWoman").src = "../Content/img/dummy.jpg";
+                                self.imageWomanData = null;
+                            }
+                            if (res[0].isMale) {
+                                self.isMale(res[0].isMale);
+                            }
+
+                            if (res[0].isFemale) {
+                                self.isFemale(res[0].isFemale);
+                            }
+                        });
+
+
+
+                    } else {
+                        document.getElementById("image").src = "../Content/img/dummy.jpg";
+                        document.getElementById("imageWoman").src = "../Content/img/dummy.jpg";
+                        self.imageData = null;
+                        self.imageWomanData = null;
+                    }
+
+                    if (idGr) {
+                        self.getSymptoms(idGr, function (resultInner) {
+                            innerSymptoms = resultInner;
+                            for (var i in result) {
+                                if (typeof (result[i].visible) != 'function') {
+                                    result[i].visible = ko.observable(true)
+                                } else {
+                                    result[i].visible(true)
+                                }
+                                var checked = false;
+                                for (var j in resultInner) {
+                                    if (resultInner[j].id == result[i].id) {
+                                        checked = true;
+                                        continue;
+                                    }
+                                }
+                                if (typeof (result[i].checked) != 'function') {
+                                    result[i].checked = ko.observable(checked)
+                                } else {
+                                    result[i].checked(checked)
+                                }
+
+                                self.symptoms.push(result[i]);
+                            }
+                        });
+                    } else {
+                        for (var i in result) {
+                            if (typeof (result[i].visible) != 'function') {
+                                result[i].visible = ko.observable(true)
+                            } else {
+                                result[i].visible(true)
+                            }
+                            if (typeof (result[i].checked) != 'function') {
+                                result[i].checked = ko.observable(false)
+                            } else {
+                                result[i].checked(false)
+                            }
+                            self.symptoms.push(result[i]);
+                        }
+                    }
+
+                });
+            }
+
+            //web callback
+
+            self.getGroup = function (idGr, callback) {
+                idGr = idGr == "" ? null : idGr;
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Neural/Groups?id=' + idGr + '&idDepartament=null',
+                    async: false,
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    success: function (data) {
+                        //self.departaments(data);
+                        typeof (callback) == 'function' && callback(data);
+
+                    },
+                    fail: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+
+            self.getSymptoms = function (idGr, callback) {
+                idGr = idGr == "" ? null : idGr;
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Neural/Symptoms?id=null&idGroups=' + idGr,
+                    async: false,
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    success: function (data) {
+                        //self.departaments(data);
+                        typeof (callback) == 'function' && callback(data);
+                    },
+                    fail: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+
+        }
+        var viewModel = new ViewModel();
+        viewModel.generateView();
+
+        ko.applyBindings(viewModel);
+    });
+</script>

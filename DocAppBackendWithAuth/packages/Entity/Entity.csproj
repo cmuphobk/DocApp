@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F3FB61A0-D12C-4CD4-858A-4F284644B857}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DocAppBackendWithAuth</RootNamespace>
+    <AssemblyName>DocAppBackendWithAuth.Entity.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.0.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=2.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ref\Microsoft.WindowsAzure.ServiceRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ContextInitializer.cs" />
+    <Compile Include="InitialUserConfig.cs" />
+    <Compile Include="MainContext.cs" />
+    <Compile Include="Migrations\201610152012193_FM.cs" />
+    <Compile Include="Migrations\201610152012193_FM.Designer.cs">
+      <DependentUpon>201610152012193_FM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610261205540_NN.cs" />
+    <Compile Include="Migrations\201610261205540_NN.Designer.cs">
+      <DependentUpon>201610261205540_NN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610271213588_ClassificationSymptoms.cs" />
+    <Compile Include="Migrations\201610271213588_ClassificationSymptoms.Designer.cs">
+      <DependentUpon>201610271213588_ClassificationSymptoms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610281930037_FileImages.cs" />
+    <Compile Include="Migrations\201610281930037_FileImages.Designer.cs">
+      <DependentUpon>201610281930037_FileImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611041307460_ImageInDiagnos.cs" />
+    <Compile Include="Migrations\201611041307460_ImageInDiagnos.Designer.cs">
+      <DependentUpon>201611041307460_ImageInDiagnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611041333232_ImageInDiagnos1.cs" />
+    <Compile Include="Migrations\201611041333232_ImageInDiagnos1.Designer.cs">
+      <DependentUpon>201611041333232_ImageInDiagnos1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611041652457_ManyToMany.cs" />
+    <Compile Include="Migrations\201611041652457_ManyToMany.Designer.cs">
+      <DependentUpon>201611041652457_ManyToMany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611042028158_isMaleisFemale.cs" />
+    <Compile Include="Migrations\201611042028158_isMaleisFemale.Designer.cs">
+      <DependentUpon>201611042028158_isMaleisFemale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611042239072_WomanImage.cs" />
+    <Compile Include="Migrations\201611042239072_WomanImage.Designer.cs">
+      <DependentUpon>201611042239072_WomanImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611112230379_Coordinates.cs" />
+    <Compile Include="Migrations\201611112230379_Coordinates.Designer.cs">
+      <DependentUpon>201611112230379_Coordinates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611132014376_Chat.cs" />
+    <Compile Include="Migrations\201611132014376_Chat.Designer.cs">
+      <DependentUpon>201611132014376_Chat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611152014052_BigMigrationWithDoctorPatientHospitalDieseRecallOutpatientCard.cs" />
+    <Compile Include="Migrations\201611152014052_BigMigrationWithDoctorPatientHospitalDieseRecallOutpatientCard.Designer.cs">
+      <DependentUpon>201611152014052_BigMigrationWithDoctorPatientHospitalDieseRecallOutpatientCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611152052164_SenderInMessage.cs" />
+    <Compile Include="Migrations\201611152052164_SenderInMessage.Designer.cs">
+      <DependentUpon>201611152052164_SenderInMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611272157267_DateTimeSendMessage.cs" />
+    <Compile Include="Migrations\201611272157267_DateTimeSendMessage.Designer.cs">
+      <DependentUpon>201611272157267_DateTimeSendMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611282018205_YearForMessages.cs" />
+    <Compile Include="Migrations\201611282018205_YearForMessages.Designer.cs">
+      <DependentUpon>201611282018205_YearForMessages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611291320101_DateForDiese.cs" />
+    <Compile Include="Migrations\201611291320101_DateForDiese.Designer.cs">
+      <DependentUpon>201611291320101_DateForDiese.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IoCContainer\IoCContainer.csproj">
+      <Project>{140ed19f-6f48-4cf8-9141-2fce9a1181b7}</Project>
+      <Name>IoCContainer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity.POCO\Entity.POCO.csproj">
+      <Project>{8b5ca64b-7fd9-4358-9df0-5ef6a8a447a2}</Project>
+      <Name>Entity.POCO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity.Repository\Entity.Repository.csproj">
+      <Project>{309fe14a-a4a5-47b2-add2-9e84bc1034ce}</Project>
+      <Name>Entity.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201610152012193_FM.resx">
+      <DependentUpon>201610152012193_FM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610261205540_NN.resx">
+      <DependentUpon>201610261205540_NN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610271213588_ClassificationSymptoms.resx">
+      <DependentUpon>201610271213588_ClassificationSymptoms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610281930037_FileImages.resx">
+      <DependentUpon>201610281930037_FileImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611041307460_ImageInDiagnos.resx">
+      <DependentUpon>201611041307460_ImageInDiagnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611041333232_ImageInDiagnos1.resx">
+      <DependentUpon>201611041333232_ImageInDiagnos1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611041652457_ManyToMany.resx">
+      <DependentUpon>201611041652457_ManyToMany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611042028158_isMaleisFemale.resx">
+      <DependentUpon>201611042028158_isMaleisFemale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611042239072_WomanImage.resx">
+      <DependentUpon>201611042239072_WomanImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611112230379_Coordinates.resx">
+      <DependentUpon>201611112230379_Coordinates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611132014376_Chat.resx">
+      <DependentUpon>201611132014376_Chat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611152014052_BigMigrationWithDoctorPatientHospitalDieseRecallOutpatientCard.resx">
+      <DependentUpon>201611152014052_BigMigrationWithDoctorPatientHospitalDieseRecallOutpatientCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611152052164_SenderInMessage.resx">
+      <DependentUpon>201611152052164_SenderInMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611272157267_DateTimeSendMessage.resx">
+      <DependentUpon>201611272157267_DateTimeSendMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611282018205_YearForMessages.resx">
+      <DependentUpon>201611282018205_YearForMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611291320101_DateForDiese.resx">
+      <DependentUpon>201611291320101_DateForDiese.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

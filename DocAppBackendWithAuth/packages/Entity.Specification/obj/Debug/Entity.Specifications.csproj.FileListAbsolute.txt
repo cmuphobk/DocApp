@@ -32,3 +32,21 @@ C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAut
 C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Entity.Specification\bin\Debug\DTO.pdb
 C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Entity.Specification\obj\Debug\DocAppBackendWithAuth.Entity.Specifications.dll
 C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Entity.Specification\obj\Debug\DocAppBackendWithAuth.Entity.Specifications.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\bin\Debug\DocAppBackendWithAuth.Entity.Specifications.dll.config
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\bin\Debug\DocAppBackendWithAuth.Entity.Specifications.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\bin\Debug\DocAppBackendWithAuth.Entity.Specifications.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\bin\Debug\DocAppBackendWithAuth.Entity.POCO.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\bin\Debug\EntityFramework.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\bin\Debug\DTO.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\bin\Debug\DocAppBackendWithAuth.Entity.POCO.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\bin\Debug\EntityFramework.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\bin\Debug\DTO.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\obj\Debug\Entity.Specifications.csprojResolveAssemblyReference.cache
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\obj\Debug\DocAppBackendWithAuth.Entity.Specifications.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Specification\obj\Debug\DocAppBackendWithAuth.Entity.Specifications.pdb

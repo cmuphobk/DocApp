@@ -44,3 +44,27 @@ C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAut
 C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Entity.Repository\obj\Debug\DocAppBackendWithAuth.Entity.Repository.dll
 C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Entity.Repository\obj\Debug\DocAppBackendWithAuth.Entity.Repository.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\DocAppBackendWithAuth.Entity.Repository.dll.config
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\DocAppBackendWithAuth.Entity.Repository.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\DocAppBackendWithAuth.Entity.Repository.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\DocAppBackendWithAuth.Common.Types.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\DocAppBackendWithAuth.Entity.POCO.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\DocAppBackendWithAuth.Entity.Specifications.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\EntityFramework.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\Ninject.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\DTO.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\DocAppBackendWithAuth.Common.Types.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\DocAppBackendWithAuth.Entity.POCO.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\DocAppBackendWithAuth.Entity.Specifications.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\EntityFramework.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\Ninject.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\DTO.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\obj\Debug\Entity.Repository.csprojResolveAssemblyReference.cache
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\obj\Debug\DocAppBackendWithAuth.Entity.Repository.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.Repository\obj\Debug\DocAppBackendWithAuth.Entity.Repository.pdb

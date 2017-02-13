@@ -133,6 +133,10 @@
     <Compile Include="Migrations\201611291320101_DateForDiese.Designer.cs">
       <DependentUpon>201611291320101_DateForDiese.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701280604178_how.cs" />
+    <Compile Include="Migrations\201701280604178_how.Designer.cs">
+      <DependentUpon>201701280604178_how.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -202,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611291320101_DateForDiese.resx">
       <DependentUpon>201611291320101_DateForDiese.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701280604178_how.resx">
+      <DependentUpon>201701280604178_how.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

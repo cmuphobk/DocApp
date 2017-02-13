@@ -31,3 +31,21 @@ C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAut
 C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Entity.POCO\obj\Debug\Entity.POCO.csprojResolveAssemblyReference.cache
 C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Entity.POCO\obj\Debug\DocAppBackendWithAuth.Entity.POCO.dll
 C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Entity.POCO\obj\Debug\DocAppBackendWithAuth.Entity.POCO.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\bin\Debug\DocAppBackendWithAuth.Entity.POCO.dll.config
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\bin\Debug\DocAppBackendWithAuth.Entity.POCO.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\bin\Debug\DocAppBackendWithAuth.Entity.POCO.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\bin\Debug\DTO.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\bin\Debug\EntityFramework.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\bin\Debug\DTO.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\bin\Debug\EntityFramework.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\obj\Debug\Entity.POCO.csprojResolveAssemblyReference.cache
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\obj\Debug\DocAppBackendWithAuth.Entity.POCO.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity.POCO\obj\Debug\DocAppBackendWithAuth.Entity.POCO.pdb

@@ -25,6 +25,15 @@ namespace DocAppBackendWithAuth.Controllers
             return list;
         }
 
+        [HttpPost]
+        [Route("Dialog")]
+        public DialogModel CreateDialog(string senderId, string reciepentId)
+        {
+            var logic = new ChatLogic();
+            var dialog = logic.createDialog(senderId, reciepentId);
+            return dialog;
+        }
+
         [HttpGet]
         [Route("Messages")]
         public IEnumerable<MessageModel> GetMessagess(int dialogId)

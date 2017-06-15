@@ -85,27 +85,27 @@ namespace DocAppBackendWithAuth.Entity.Entity
         /// <summary>
         /// Болезнь
         /// </summary>
-        public DbSet<Disease> Disease;
+        public DbSet<Disease> Disease { get; set; }
         /// <summary>
         /// Доктор
         /// </summary>
-        public DbSet<Doctor> Doctor;
+        public DbSet<Doctor> Doctor { get; set; }
         /// <summary>
         /// Лечебное заведение
         /// </summary>
-        public DbSet<Hospital> Hospital;
+        public DbSet<Hospital> Hospital { get; set; }
         /// <summary>
         /// Амбулаторная карт
         /// </summary>
-        public DbSet<OutpatientCard> OutpatientCard;
+        public DbSet<OutpatientCard> OutpatientCard { get; set; }
         /// <summary>
         /// Пациент
         /// </summary>
-        public DbSet<Patient> Patient;
+        public DbSet<Patient> Patient { get; set; }
         /// <summary>
         /// Отзыв
         /// </summary>
-        public DbSet<Recall> Recall;
+        public DbSet<Recall> Recall { get; set; }
 
         public IDbSet<TEntity> GetModel<TEntity>() where TEntity : class
         {

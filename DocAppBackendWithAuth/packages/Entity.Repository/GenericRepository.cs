@@ -118,6 +118,7 @@ namespace DocAppBackendWithAuth.Entity.Repository
         
         private IQueryable<TEntity> FindInner(FindParam<TEntity> param)
         {
+            var a = typeof(TEntity);
             IQueryable<TEntity> dbSet = UnitOfWork.GetModel<TEntity>();
             if (param.Property != null)
             {

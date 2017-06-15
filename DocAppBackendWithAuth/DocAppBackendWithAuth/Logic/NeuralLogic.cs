@@ -14,21 +14,43 @@ namespace DocAppBackendWithAuth.Logic
     public class NeuralLogic
     {
 
+        public static List<Departament> filterChildDeletedDp(List<Departament> departaments)
+        {
+            foreach (var dep in departaments)
+            {
+                dep.groups = dep.groups.Where(t => t.isDelete == false).ToList();
+                foreach (var group in dep.groups)
+                {
+                    group.symptoms = group.symptoms.Where(t => t.isDelete == false).ToList();
+                }
+            }
+            return departaments;
+        }
 
+        public static List<Group> filterChildDeletedGr(List<Group> groups)
+        {
+            foreach (var group in groups)
+            {
+                group.symptoms = group.symptoms.Where(t => t.isDelete == false).ToList();
+            }
+            return groups;
+        }
         public List<Departament> getDepartaments(int? id)
         {
             var departaments = new List<Departament>();
+            var returnDepartaments = new List<Departament>();
             using (var context = IoCContainer.Get<IEntity>())
             {
                 var repository = context.GetRepository<IRepository<Departament>>();
 
                 if (id.HasValue)
                 {
-                    departaments.Add(repository.Find(new Entity.Specifications.POCO.Departament.ById((int)id), new List<Expression<Func<Departament, object>>>
+                    departaments.Add(repository.Find(new Entity.Specifications.POCO.Departament.ById((int)id) & new Entity.Specifications.POCO.Departament.ByDelete(false), new List<Expression<Func<Departament, object>>>
                     {
                         t => t.groups,
                         t => t.groups.Select(q=>q.symptoms)
                     }).First());
+                   
                 }
                 else
                 {
@@ -36,8 +58,10 @@ namespace DocAppBackendWithAuth.Logic
                     {
                         t => t.groups,
                         t => t.groups.Select(q=>q.symptoms)
-                    }).ToList();
+                    }).Where(t=>t.isDelete != true).ToList();
                 }
+
+                departaments = NeuralLogic.filterChildDeletedDp(departaments);
 
                 return departaments;
             }
@@ -52,7 +76,7 @@ namespace DocAppBackendWithAuth.Logic
 
                 if (id.HasValue)
                 {
-                    groups.Add(repository.Find(new Entity.Specifications.POCO.Group.ById((int)id), new List<Expression<Func<Group, object>>>
+                    groups.Add(repository.Find(new Entity.Specifications.POCO.Group.ById((int)id) & new Entity.Specifications.POCO.Group.ByDelete(false), new List<Expression<Func<Group, object>>>
                     {
                         t => t.symptoms
                     }).First());
@@ -62,8 +86,10 @@ namespace DocAppBackendWithAuth.Logic
                     groups = repository.GetAll(new List<Expression<Func<Group, object>>>
                     {
                         t => t.symptoms
-                    }).ToList();
+                    }).Where(t => t.isDelete != true).ToList();
                 }
+
+                groups = NeuralLogic.filterChildDeletedGr(groups);
 
                 return groups;
             }
@@ -76,7 +102,7 @@ namespace DocAppBackendWithAuth.Logic
             {
                 var repository = context.GetRepository<IRepository<Departament>>();
 
-                var departament = repository.Find(new Entity.Specifications.POCO.Departament.ById(idDepartament), new List<Expression<Func<Departament, object>>>
+                var departament = repository.Find(new Entity.Specifications.POCO.Departament.ById(idDepartament) & new Entity.Specifications.POCO.Departament.ByDelete(false), new List<Expression<Func<Departament, object>>>
                 {
                     t => t.groups,
                     t => t.groups.Select(q=>q.symptoms)
@@ -85,7 +111,9 @@ namespace DocAppBackendWithAuth.Logic
                 departament.groups.ForEach(t =>
                 {
                     groups.Add(t);
-                });          
+                });
+
+                groups = NeuralLogic.filterChildDeletedGr(groups);
 
                 return groups;
             }
@@ -98,14 +126,18 @@ namespace DocAppBackendWithAuth.Logic
             {
                 var repository = context.GetRepository<IRepository<Group>>();
 
-                var group = repository.Find(new Entity.Specifications.POCO.Group.ById(idGroup), new List<Expression<Func<Group, object>>>
+                var group = repository.Find(new Entity.Specifications.POCO.Group.ById(idGroup) & new Entity.Specifications.POCO.Group.ByDelete(false), new List<Expression<Func<Group, object>>>
                 {
                     t => t.symptoms
                 }).First();
 
                 group.symptoms.ForEach(t =>
                 {
-                    symptoms.Add(t);
+                    if (!t.isDelete)
+                    {
+                        symptoms.Add(t);
+                    }
+                    
                 });
 
                 return symptoms;
@@ -121,11 +153,11 @@ namespace DocAppBackendWithAuth.Logic
 
                 if (id.HasValue)
                 {
-                    diagnoses.Add(repository.Find(new Entity.Specifications.POCO.Diagnos.ById((int)id)).First());
+                    diagnoses.Add(repository.Find(new Entity.Specifications.POCO.Diagnos.ById((int)id) & new Entity.Specifications.POCO.Diagnos.ByDelete(false)).First());
                 }
                 else
                 {
-                    diagnoses = repository.GetAll().ToList();
+                    diagnoses = repository.GetAll().Where(t => t.isDelete != true).ToList();
                 }
 
                 return diagnoses;
@@ -141,11 +173,11 @@ namespace DocAppBackendWithAuth.Logic
 
                 if (id.HasValue)
                 {
-                    symptoms.Add(repository.Find(new Entity.Specifications.POCO.Symptom.ById((int)id)).First());
+                    symptoms.Add(repository.Find(new Entity.Specifications.POCO.Symptom.ById((int)id) & new Entity.Specifications.POCO.Symptom.ByDelete(false)).First());
                 }
                 else
                 {
-                    symptoms = repository.GetAll().ToList();
+                    symptoms = repository.GetAll().Where(t=>t.isDelete!=true).ToList();
                 }
 
                 return symptoms;
@@ -336,6 +368,70 @@ namespace DocAppBackendWithAuth.Logic
                 context.SaveChanges();
                 
                 return newSymptom;
+            }
+        }
+
+        /// <summary>
+        /// Функция удаления диагноза
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public void removeDiagnos(DiagnosModel diagnosModel)
+        {
+            using (var context = IoCContainer.Get<IEntity>())
+            {
+                
+                var repository = context.GetRepository<IRepository<Diagnos>>();
+                var diagnos = repository.Find(new Entity.Specifications.POCO.Diagnos.ById((int)diagnosModel.id)).First();
+                diagnos.isDelete = true;
+
+                context.SaveChanges();
+            }
+        }
+        /// <summary>
+        /// Функция удаления системы
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public void removeDepartament(DepartamentModel departamentModel)
+        {
+            using (var context = IoCContainer.Get<IEntity>())
+            {
+                var repository = context.GetRepository<IRepository<Departament>>();
+                var departament = repository.Find(new Entity.Specifications.POCO.Departament.ById((int)departamentModel.id)).First();
+                departament.isDelete = true;
+                context.SaveChanges();
+            }
+        }
+        /// <summary>
+        /// Функция удаления группы
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public void removeGroup(GroupModel groupModel)
+        {
+            using (var context = IoCContainer.Get<IEntity>())
+            {
+                var repository = context.GetRepository<IRepository<Group>>();
+                var group = repository.Find(new Entity.Specifications.POCO.Group.ById((int)groupModel.id)).First();
+                group.isDelete = true;
+                context.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Функция удаления симптома
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public void removeSymptom(SymptomModel symptomModel)
+        {
+            using(var context = IoCContainer.Get<IEntity>())
+            {
+                var repository = context.GetRepository<IRepository<Symptom>>();
+                var symptom = repository.Find(new Entity.Specifications.POCO.Symptom.ById((int)symptomModel.id)).First();
+                symptom.isDelete = true;
+                context.SaveChanges();
             }
         }
 

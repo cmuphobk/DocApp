@@ -86,6 +86,15 @@ namespace DocAppBackendWithAuth.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, departament);
         }
 
+        [HttpDelete]
+        [Route("Departament")]
+        public HttpResponseMessage DepartamentRemove(DepartamentModel model)
+        {
+            new NeuralLogic().removeDepartament(model);
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
         [HttpPost]
         [Route("Group")]
         public HttpResponseMessage Group(GroupModel model)
@@ -93,6 +102,15 @@ namespace DocAppBackendWithAuth.Controllers
             var group = new NeuralLogic().manageGroup(model).toModel();
 
             return Request.CreateResponse(HttpStatusCode.OK, group);
+        }
+
+        [HttpDelete]
+        [Route("Group")]
+        public HttpResponseMessage GroupRemove(GroupModel model)
+        {
+            new NeuralLogic().removeGroup(model);
+
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         [HttpPost]
@@ -104,6 +122,15 @@ namespace DocAppBackendWithAuth.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, diagnos);
         }
 
+        [HttpDelete]
+        [Route("Diagnos")]
+        public HttpResponseMessage DiagnosRemove(DiagnosModel model)
+        {
+            new NeuralLogic().removeDiagnos(model);
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
         [HttpPost]
         [Route("Symptom")]
         public HttpResponseMessage Symptom(SymptomModel model)
@@ -112,6 +139,14 @@ namespace DocAppBackendWithAuth.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, symptom);
         }
 
+        [HttpDelete]
+        [Route("Symptom")]
+        public HttpResponseMessage SymptomRemove(SymptomModel model)
+        {
+            new NeuralLogic().removeSymptom(model);
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
 
 
         [HttpPost]

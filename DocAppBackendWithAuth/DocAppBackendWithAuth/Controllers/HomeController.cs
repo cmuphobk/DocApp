@@ -17,6 +17,13 @@ namespace DocAppBackendWithAuth.Controllers
             return View();
         }
 
+        public ActionResult Login()
+        {
+            ViewBag.Title = "Login";
+
+            return View();
+        }
+
         public ActionResult ManageSystem()
         {
             ViewBag.Title = "ManageSystem";

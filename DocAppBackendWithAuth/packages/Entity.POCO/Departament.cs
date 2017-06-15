@@ -47,6 +47,12 @@ namespace DocAppBackendWithAuth.Entity.POCO
         /// </summary>
         public byte[] bigImageWoman { get; set; }
 
+
+        /// <summary>
+        /// Удален ли
+        /// </summary>
+        public bool isDelete { get; set; }
+
         /// <summary>
         /// Группы
         /// </summary>

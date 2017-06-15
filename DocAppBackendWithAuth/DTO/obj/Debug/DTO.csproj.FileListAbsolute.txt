@@ -3,3 +3,7 @@ C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAut
 C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\DTO\obj\Debug\DTO.dll
 C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\DTO\obj\Debug\DTO.pdb
 C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\DTO\bin\Debug\DTO.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\DTO\bin\Debug\DTO.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\DTO\obj\Debug\DTO.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\DTO\obj\Debug\DTO.pdb

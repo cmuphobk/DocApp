@@ -26,6 +26,18 @@ namespace DocAppBackendWithAuth.Logic
             }
         }
 
+        public List<BaseUser> getUsers()
+        {
+            using (var context = IoCContainer.Get<IEntity>())
+            {
+                var repositoryUser = context.GetRepository<IRepository<BaseUser>>();
+                return repositoryUser.GetAll(new List<Expression<Func<BaseUser, object>>>
+                {
+                    t => t.User
+                }).ToList();
+            }
+        }
+
         public BaseUser createUser(string name, string firstname, string secondname, ApplicationUser userApp)
         {
             using (var context = IoCContainer.Get<IEntity>())

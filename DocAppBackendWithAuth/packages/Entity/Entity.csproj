@@ -137,6 +137,22 @@
     <Compile Include="Migrations\201701280604178_how.Designer.cs">
       <DependentUpon>201701280604178_how.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702201240408_IsDeleted.cs" />
+    <Compile Include="Migrations\201702201240408_IsDeleted.Designer.cs">
+      <DependentUpon>201702201240408_IsDeleted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706091549030_X3.cs" />
+    <Compile Include="Migrations\201706091549030_X3.Designer.cs">
+      <DependentUpon>201706091549030_X3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706091606444_X33.cs" />
+    <Compile Include="Migrations\201706091606444_X33.Designer.cs">
+      <DependentUpon>201706091606444_X33.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706091610327_X333.cs" />
+    <Compile Include="Migrations\201706091610327_X333.Designer.cs">
+      <DependentUpon>201706091610327_X333.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -209,6 +225,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701280604178_how.resx">
       <DependentUpon>201701280604178_how.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702201240408_IsDeleted.resx">
+      <DependentUpon>201702201240408_IsDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706091549030_X3.resx">
+      <DependentUpon>201706091549030_X3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706091606444_X33.resx">
+      <DependentUpon>201706091606444_X33.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706091610327_X333.resx">
+      <DependentUpon>201706091610327_X333.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,6 +1,6 @@
-﻿
+﻿@using Microsoft.AspNet.Identity;
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Chat";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -8,36 +8,39 @@
     <link href="@Url.Content("~/Content/css/chat.css")" rel="stylesheet" type="text/css" />
 }
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="col-md-4">
-                <!--ko foreach: dialogs-->
-                <label class="dialog" data-bind="text:Id, event:{click:$root.clickDialog}"></label>
-                <!--/ko-->
-            </div>
-            <div class="col-md-8">
-                <!--ko foreach: messages-->
-                <label class="message" data-bind="text:Text"></label>
-                <!--/ko-->
-            </div>
 
-        </div>
+<div class="cont_block">
+    <div class="left_cont_block">
+        <select class="chosen-select" data-bind="options: users, optionsText: 'UserName', value: selectedUserSearch">
+        </select>
+        <input type="button" value="Создать диалог" data-bind="click:changeSearchUser" />
+        <!--ko foreach: dialogs-->
+        <label class="dialog" data-bind="text:ViewName, event:{click:$root.clickDialog}"></label>
+        <!--/ko-->
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="col-md-12">
-                <input type="text" data-bind="value:messageText" />
-                <button data-bind="event:{click:sendMessageClick}">Отправить</button>
-            </div>
+    <div class="right_cont_block" >
+        <!--ko foreach: messages-->
+        <div class="message_div" data-bind="css:{'isMyMessage':isMy}">
+            <label class="sender" data-bind="text:name"></label>
+            <label class="message" data-bind="text:text"></label>
         </div>
+        <!--/ko-->
     </div>
+
 </div>
+<div class="foot_block">
+    <input class="textarea" type="text" data-bind="value:messageText" />
+    <button class="button_send" data-bind="event:{click:sendMessageClick}">Отправить</button>
+</div>
+
 
 <script type="text/javascript">
     $(document).ready(function () {
 
-    
+        $('footer').css('display', 'none');
+        //$(".chosen-select").chosen({ no_results_text: "Ничего не найдено!" });
+
+
     function ViewModel () {
         self = this;
         self.chat = $.connection.chatHub;
@@ -46,14 +49,21 @@
         self.currentDialogId = ko.observable(null);
         self.currentReciepentId = ko.observable(null);
 
+        self.selectedUserSearch = ko.observable(null);
+
+        self.users = ko.observableArray([]);
+
         self.messageText = ko.observable('');
 
         self.dialogs = ko.observableArray([]);
         self.messages = ko.observableArray([]);
 
-        self.clickDialog = function (data,event) {
+        self.clickDialog = function (data, event) {
+            $('.dialog').removeClass('activeDialog');
+            $(event.target).addClass('activeDialog');
+
             self.currentDialogId(data.Id);
-            if (data.IdFirstUser == self.userId) {
+            if (data.IdFirstUser == '@(User.Identity.GetUserId())') {
                 self.currentReciepentId(data.IdSecondUser);
             } else {
                 self.currentReciepentId(data.IdFirstUser);
@@ -61,16 +71,36 @@
             self.setMessages(data.Id);
         }
 
+        self.changeSearchUser = function (data, event) {
+            var selectedUser = self.selectedUserSearch();
+            $.ajax({
+                type: 'POST',
+                url: '/api/ChatApi/Dialog?senderId=' + '@(User.Identity.GetUserId())' + '&reciepentId=' + selectedUser.IdentityId,
+                beforeSend: function (xhr) {
+                    var token = sessionStorage.getItem(tokenKey);
+                    xhr.setRequestHeader("Authorization", "Bearer " + token);
+                },
+                success: function (data) {
+                    //alert(data);
+                    //self.dialogs.push(data);
+                    self.setDialogs();
+                }
+            });
+        }
+
         self.sendMessageClick = function(data, event){
             self.sendMessage(self.currentReciepentId(), self.messageText());
         }
 
         self.sendMessage = function (reciepentId, message){
-            self.chat.server.send(reciepentId, message);
+            self.chat.server.send(reciepentId, message).then(function () {
+                $('.textarea').val('')
+            });
+
         }
 
         self.setDialogs = function (callback) {
-            
+
             $.ajax({
                 type: 'GET',
                 url: '/api/ChatApi/Dialogs',
@@ -80,16 +110,27 @@
                 },
                 success: function (data) {
                     //alert(data);
+                    for (var i in data) {
+                        var dialog = data[i];
+                        var IdFirstUser = dialog.IdFirstUser;
+                        var IdSecondUser = dialog.IdSecondUser;
+                        if ('@(User.Identity.GetUserId())' == IdFirstUser) {
+                            dialog.ViewName = dialog.UsernameSecondUser
+                        } else {
+                            dialog.ViewName = dialog.UsernameFirstUser
+                        }
+                        data[i] = dialog;
+                    }
                     self.dialogs(data);
                     typeof (callback) == 'function' && callback();
-                    
+
                 },
                 fail: function (data) {
                     //alert(data);
                     handleException(data);
                 }
             });
-            
+
         }
 
         self.setMessages = function (dialogId) {
@@ -103,7 +144,18 @@
                     },
                     success: function (data) {
                         //alert(data);
-                        self.messages(data);
+                        self.messages([]);
+                        for (var i in data) {
+                            var message = data[i];
+
+                            self.messages.push({
+                                text: message.Text,
+                                name: message.NameSender,
+                                isMy: message.IdSender == '@(User.Identity.GetUserId())'
+                            });
+                        }
+                        $('.right_cont_block').scrollTop($('.right_cont_block')[0].scrollHeight);
+
                     },
                     fail: function (data) {
                         //alert(data);
@@ -111,8 +163,23 @@
                     }
                 });
             }
-            
 
+
+        }
+
+        self.getUsers = function () {
+            $.ajax({
+                type: 'GET',
+                url: '/api/Account/Users',
+                beforeSend: function (xhr) {
+                    var token = sessionStorage.getItem(tokenKey);
+                    xhr.setRequestHeader("Authorization", "Bearer " + token);
+                },
+                success: function (data) {
+                    //alert(data);
+                    self.users(data);
+                }
+            });
         }
 
         self.generateView = function () {
@@ -122,8 +189,9 @@
                     self.chat.server.connect();
                 });
             });
-                     
-     
+            self.getUsers();
+
+
         }
     }
     var viewModel = new ViewModel();
@@ -138,7 +206,7 @@
         viewModel.setDialogs(function () {
             viewModel.setMessages(viewModel.currentDialogId());
         });
-        
+
         console.log('connect');
     }
 

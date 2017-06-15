@@ -9,14 +9,7 @@
 }
 
 
-<div class="window_load" data-bind="visible:isLoading">
-    <div class="cssload-thecube">
-        <div class="cssload-cube cssload-c1"></div>
-        <div class="cssload-cube cssload-c2"></div>
-        <div class="cssload-cube cssload-c4"></div>
-        <div class="cssload-cube cssload-c3"></div>
-    </div>
-</div>
+
 
 <div class="diagnos_container_small">
     <label for="isMale" class="isMaleLabel" data-bind="css:{isMaleLabelActive:isMale()}">МУЖЧИНА</label>
@@ -183,6 +176,7 @@
             
             self.generateView = function () {
                 self.isLoading(true);
+                $('.window_load').css('display', 'block');
                 if (self.isMale()) {
                     self.departamentBigImage("/Content/img/m0.png");
                 } else {
@@ -192,7 +186,7 @@
                 self.getDepartaments(function (result) {
                     self.departaments(result);
     
-                    setTimeout(function () { self.isLoading(false) }, 2000);
+                    setTimeout(function () { self.isLoading(false); $('.window_load').css('display', 'none'); }, 2000);
                 });
             }
 
@@ -264,7 +258,17 @@
                 }
                 if (arr.length != 0) {
                     data.getFullAnswer(arr, function (data) {
-                        self.answers(data);
+                        var dataSort = data.sort(function (a, b) {
+                            if (a.Value < b.Value) {
+                                return 1;
+                            }
+                            if (a.Value > b.Value) {
+                                return -1;
+                            }
+                            
+                            return 0;
+                        })
+                        self.answers(dataSort);
                         self.generateAnswerView(true);
                     });
                 } else {

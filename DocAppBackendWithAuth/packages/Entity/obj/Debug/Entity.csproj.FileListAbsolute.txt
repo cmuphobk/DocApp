@@ -115,3 +115,7 @@ C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity\obj\D
 C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity\obj\Debug\DocAppBackendWithAuth.Entity.Entity.dll
 C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity\obj\Debug\DocAppBackendWithAuth.Entity.Entity.pdb
 C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity\obj\Debug\DocAppBackendWithAuth.Entity.Entity.Migrations.how.resources
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity\obj\Debug\DocAppBackendWithAuth.Entity.Entity.Migrations.IsDeleted.resources
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity\obj\Debug\DocAppBackendWithAuth.Entity.Entity.Migrations.X3.resources
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity\obj\Debug\DocAppBackendWithAuth.Entity.Entity.Migrations.X33.resources
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Entity\obj\Debug\DocAppBackendWithAuth.Entity.Entity.Migrations.X333.resources

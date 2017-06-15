@@ -33,8 +33,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Types", "packages\Types\Typ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{294B87BA-9EC7-48E6-AB63-BCE0560CBF61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportsApplication", "ReportsApplication\ReportsApplication.csproj", "{45EDA1CE-17A7-456C-AB9D-5C70B34EB681}"
-EndProject
 Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "MultidimensionalProject", "MultidimensionalProject\MultidimensionalProject.dwproj", "{324AD7BC-2F57-4FE8-8D4D-E480FCEA9939}"
 EndProject
 Global
@@ -155,18 +153,6 @@ Global
 		{294B87BA-9EC7-48E6-AB63-BCE0560CBF61}.Release|Any CPU.Build.0 = Release|Any CPU
 		{294B87BA-9EC7-48E6-AB63-BCE0560CBF61}.Release|x64.ActiveCfg = Release|Any CPU
 		{294B87BA-9EC7-48E6-AB63-BCE0560CBF61}.Release|x64.Build.0 = Release|Any CPU
-		{45EDA1CE-17A7-456C-AB9D-5C70B34EB681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{45EDA1CE-17A7-456C-AB9D-5C70B34EB681}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{45EDA1CE-17A7-456C-AB9D-5C70B34EB681}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{45EDA1CE-17A7-456C-AB9D-5C70B34EB681}.Debug|x64.Build.0 = Debug|Any CPU
-		{45EDA1CE-17A7-456C-AB9D-5C70B34EB681}.Development|Any CPU.ActiveCfg = Debug|Any CPU
-		{45EDA1CE-17A7-456C-AB9D-5C70B34EB681}.Development|Any CPU.Build.0 = Debug|Any CPU
-		{45EDA1CE-17A7-456C-AB9D-5C70B34EB681}.Development|x64.ActiveCfg = Debug|Any CPU
-		{45EDA1CE-17A7-456C-AB9D-5C70B34EB681}.Development|x64.Build.0 = Debug|Any CPU
-		{45EDA1CE-17A7-456C-AB9D-5C70B34EB681}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{45EDA1CE-17A7-456C-AB9D-5C70B34EB681}.Release|Any CPU.Build.0 = Release|Any CPU
-		{45EDA1CE-17A7-456C-AB9D-5C70B34EB681}.Release|x64.ActiveCfg = Release|Any CPU
-		{45EDA1CE-17A7-456C-AB9D-5C70B34EB681}.Release|x64.Build.0 = Release|Any CPU
 		{324AD7BC-2F57-4FE8-8D4D-E480FCEA9939}.Debug|Any CPU.ActiveCfg = Development
 		{324AD7BC-2F57-4FE8-8D4D-E480FCEA9939}.Debug|Any CPU.Build.0 = Development
 		{324AD7BC-2F57-4FE8-8D4D-E480FCEA9939}.Debug|Any CPU.Deploy.0 = Development

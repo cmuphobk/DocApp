@@ -16,12 +16,22 @@ namespace DocAppBackendWithAuth.Models
         /// <summary>
         /// Пользователь
         /// </summary>
-        public int IdFirstUser { get; set; }
+        public string IdFirstUser { get; set; }
 
         /// <summary>
         /// Пользователь
         /// </summary>
-        public int IdSecondUser { get; set; }
+        public string IdSecondUser { get; set; }
+
+        /// <summary>
+        /// Пользователь Имя
+        /// </summary>
+        public string UsernameFirstUser { get; set; }
+
+        /// <summary> 
+        /// Пользователь Имя
+        /// </summary>
+        public string UsernameSecondUser { get; set; }
 
         /// <summary>
         /// Сообщения
@@ -40,10 +50,32 @@ namespace DocAppBackendWithAuth.Models
         public int Id { get; set; }
 
         /// <summary>
+        /// Идентификатор отправителя
+        /// </summary>
+        public string IdSender { get; set; }
+        
+        /// <summary>
+        /// Имя отправителя
+        /// </summary>
+        public string NameSender { get; set; }
+
+        /// <summary>
         /// Сообщение
         /// </summary>
         public string Text { get; set; }
 
     }
 
+    [Serializable]
+    public class SearchUserModel
+    {
+        /// <summary>
+        /// Имя пользователя
+        /// </summary>
+        public string UserName { get; set; }
+        /// <summary>
+        /// Идентификатор пользователя
+        /// </summary>
+        public string IdentityId { get; set; }
+    }
 }

@@ -39,6 +39,10 @@ namespace DocAppBackendWithAuth.Models
         public string Name { get; set; }
 
         [Required]
+        [Display(Name = "Имя пользователя")]
+        public string UserName { get; set; }
+
+        [Required]
         [Display(Name = "Фамилия")]
         public string FirstName { get; set; }
 

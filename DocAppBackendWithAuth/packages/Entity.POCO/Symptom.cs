@@ -31,6 +31,11 @@ namespace DocAppBackendWithAuth.Entity.POCO
         public bool isFemale { get; set; }
 
         /// <summary>
+        /// Удален ли
+        /// </summary>
+        public bool isDelete { get; set; }
+
+        /// <summary>
         /// Координата Х
         /// </summary>
         public int coordX { get; set; }

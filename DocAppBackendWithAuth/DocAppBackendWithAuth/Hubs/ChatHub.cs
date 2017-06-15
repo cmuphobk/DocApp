@@ -15,7 +15,7 @@ namespace DocAppBackendWithAuth.Hubs
 {
     public class ChatHub : Hub
     {
-        public void Send(int reciepentId, string message)
+        public void Send(string reciepentId, string message)
         {
             var senderConnectionId = Context.ConnectionId;
             
@@ -23,8 +23,9 @@ namespace DocAppBackendWithAuth.Hubs
             {
                 var repositoryUser = context.GetRepository<IRepository<BaseUser>>();
                 var repositoryDialog = context.GetRepository<IRepository<Dialog>>();
+                var repositoryMessages = context.GetRepository<IRepository<Message>>();
 
-                var userReciepent = repositoryUser.Find(new Entity.Specifications.POCO.User.ById(reciepentId)).First();
+                var userReciepent = repositoryUser.Find(new Entity.Specifications.POCO.User.ByUserId(reciepentId)).First();
                 var reciepentConnectionId = userReciepent.ConnectionId;
                 var userSender = repositoryUser.Find(new ByConnectionId(senderConnectionId)).First();
 
@@ -35,18 +36,27 @@ namespace DocAppBackendWithAuth.Hubs
                     t => t.Messages
                 });
 
+
+                var messageEntity = new Message
+                {
+                    Text = message,
+                    Sender = userSender,
+                    Images = new List<Image>(),
+                    Hrefs = new List<Href>(),
+                    Documents = new List<Document>()
+                };
+                repositoryMessages.Add(messageEntity);
+                context.SaveChanges();
                 if (dialogList.Any())
                 {
                     var dialog = dialogList.First();
-                    dialog.Messages.Add(new Message {
-                        Text = message
-                    });
+                    
+                    dialog.Messages.Add(messageEntity);
+                    repositoryDialog.Update(dialog);
                 }else
                 {
                     var messages = new List<Message>();
-                    messages.Add(new Message {
-                        Text = message
-                    });
+                    messages.Add(messageEntity);
                     repositoryDialog.Add(new Dialog
                     {
                         FirstUser = userSender,

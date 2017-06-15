@@ -27,3 +27,18 @@ C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAut
 C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\bin\Debug\ru\System.Web.Optimization.resources.dll
 C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\obj\Debug\DocAppBackendWithAuth.Common.Types.dll
 C:\Users\Кирилл\Documents\Visual Studio 2015\Projects\DocAppBackendWithAuth\packages\Types\obj\Debug\DocAppBackendWithAuth.Common.Types.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Types\bin\Debug\DocAppBackendWithAuth.Common.Types.dll.config
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Types\bin\Debug\DocAppBackendWithAuth.Common.Types.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Types\bin\Debug\DocAppBackendWithAuth.Common.Types.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Types\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Types\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Types\bin\Debug\System.Web.Optimization.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Types\bin\Debug\WebGrease.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Types\bin\Debug\Antlr3.Runtime.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Types\bin\Debug\Microsoft.Web.Infrastructure.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Types\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Types\bin\Debug\System.Web.Optimization.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Types\bin\Debug\ru\System.Web.Optimization.resources.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Types\obj\Debug\Types.csprojResolveAssemblyReference.cache
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Types\obj\Debug\DocAppBackendWithAuth.Common.Types.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\packages\Types\obj\Debug\DocAppBackendWithAuth.Common.Types.pdb

@@ -385,3 +385,8 @@ C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\DocAppBackendWithAuth
 C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\DocAppBackendWithAuth\obj\Debug\DocAppBackendWithAuth.csprojResolveAssemblyReference.cache
 C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\DocAppBackendWithAuth\obj\Debug\DocAppBackendWithAuth.dll
 C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\DocAppBackendWithAuth\obj\Debug\DocAppBackendWithAuth.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\DocAppBackendWithAuth\bin\HtmlAgilityPack.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\DocAppBackendWithAuth\bin\HtmlAgilityPack.pdb
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\DocAppBackendWithAuth\bin\HtmlAgilityPack.xml
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\DocAppBackendWithAuth\bin\ru\Microsoft.AspNet.SignalR.Core.resources.dll
+C:\Users\Кирилл\Desktop\DocApp\DocAppBackendWithAuth\DocAppBackendWithAuth\bin\ru\Microsoft.AspNet.SignalR.SystemWeb.resources.dll

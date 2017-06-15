@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity;
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -7,11 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/cssbundle")
+    
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/knockout")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/signalR")
+    @Styles.Render("~/Content/cssbundle")
+    @Styles.Render("~/Content/jsbundle")
     <script src="~/signalr/hubs"></script>
     @RenderSection("styles", required: false)
 </head>
@@ -31,24 +34,60 @@
             <div class="navbar-collapse collapse">
                 
                 <ul class="nav navbar-nav">
+
                     <li>@Html.ActionLink("Домашняя страница", "Index", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Постановка диагноза", "UserDiagnos", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Административная панель", "ManageSystem", "Home", new { area = "" }, null)</li>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Административная панель", "ManageSystem", "Home", new { area = "" }, null)</li>
+                    }
+
                     <li>@Html.ActionLink("Сообщения", "Index", "Chat", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                    
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                    }
+                    
+                   
+
+                    <li class="exite_btn"><a>Выход</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    
+        <div class="window_load">
+            <div class="cssload-thecube">
+                <div class="cssload-cube cssload-c1"></div>
+                <div class="cssload-cube cssload-c2"></div>
+                <div class="cssload-cube cssload-c4"></div>
+                <div class="cssload-cube cssload-c3"></div>
+            </div>
+        </div>
         @RenderBody()
         <hr />
     
         <footer>
+
             <div class="container">
                 <p>&copy; @DateTime.Now.Year – DocApp</p>
             </div>
         </footer>
+
+    <div id="confirm_modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border-radius: 0;">
+                <div class="modal-body modal_body_success">
+                    <button type="button" class="close close_green" data-dismiss="modal">&times;</button>
+                    <div class="text_confirm">
+                        <label class="head_confirm">Подтвердите действие</label>
+                        <button class="confirm_btn" data-dismiss="modal">Подтвердить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <div id="modal_success" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -99,7 +138,7 @@
             });
         }
 
-        function login() {
+        function login(callback) {
             $.ajax({
                 type: 'POST',
                 url: '/Token',
@@ -107,6 +146,7 @@
             }).success(function (data) {
                 // сохраняем в хранилище sessionStorage токен доступа
                 sessionStorage.setItem(tokenKey, data.access_token);
+                typeof (callback) == 'function' && callback();
             }).fail(function (data) {
                 handleException('При логине возникла ошибка');
             });
@@ -129,6 +169,30 @@
             });
         }
 
+        function register(data, fail) {
+            $.ajax({
+                type: 'POST',
+                url: '/api/Account/Register/',
+                dataType: 'application/json',
+                data: {
+                    Name: data.name,
+                    FirstName: data.firstname,
+                    SecondName: data.secondname,
+                    UserName: data.username,
+                    Email: data.email,
+                    Password: data.password,
+                    ConfirmPassword: data.confirmpassword
+                },
+                error: function (data) {
+                    
+                    //alert(data);
+                    console.log(data);
+                    typeof (fail) == "function" && fail(data);
+                }
+            });
+
+        }
+
         
 
         function logout() {
@@ -137,6 +201,12 @@
         }
 
         function handleSuccess(message) {
+            if (message) {
+                $('#modal_success .head_green').text(message);
+            } else {
+                $('#modal_success .head_green').text("Успешно");
+            }
+            
             $("#modal_success").modal('show');
         }
         function handleException(message) {
@@ -149,6 +219,13 @@
             }
             
         }
+
+        $("#modal_success, #modal_exception").on('show', function (event) {
+            setTimeout(function () {
+                $(this).modal('hide');
+            }, 1500);
+            
+        });
 
 
         function _arrayBufferToBase64(buffer) {
@@ -171,14 +248,30 @@
             return bytes.buffer;
         }
 
+        $('.window_load').css('display', 'block');
+        $('.collapse').css('visibility', 'hidden');
+        getUserInfo(function () {
+            console.log("success");
+            $('.window_load').css('display', 'none');
+            $('.collapse').css('visibility', 'visible');
+        },
+        function () {
+            var url = window.location.href;
+            var action = url.split('/')[4];
 
-        $(document).ready(function () {     
-            getUserInfo(function(){
-                console.log("success");
-            },
-            function(){
-                login();
-            });
+            if (action == 'Login') {
+                $('.collapse').css('visibility', 'hidden');
+                $('.window_load').css('display', 'none');
+                return;
+            }
+            //go to login page
+            window.location.href = '/Home/Login';
+        });
+
+        $(document).ready(function () {
+            $('.exite_btn').click(function () {
+                window.location.href = '/Home/Login';
+            })
         });
     </script>
 </body>

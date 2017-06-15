@@ -4,7 +4,17 @@
     width:100%;
     font-size:20px;
     color:rgb(30,30,30);
-    padding:5px 15px;
+    padding:0 15px;
+    border-bottom: 1px solid lightgray;
+    height: 80px;
+    display:flex;
+    align-items: center;
+}
+.dialog:hover{
+    background-color: rgba(55,160,185,0.05);
+}
+.activeDialog{
+    background-color: rgba(55,160,185,0.05);
 }
 .message{
     width:100%;
@@ -35,4 +45,77 @@ input[type="text"]{
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     outline: none;
+}
+.message_div{
+    padding:0 15px;
+    border-bottom: 1px solid lightgray;
+    height: 80px;
+    display:flex;
+    align-items: center;
+}
+.message_div:hover{
+    background-color: rgba(55,160,185,0.05);
+}
+.isMyMessage{
+    background-color: rgba(80,80, 200, 0.05);
+}
+.cont_block{
+    position: fixed;
+    top: 80px;
+    height: 100vh;
+    padding-bottom: 160px;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+}
+.left_cont_block{
+    overflow-y:scroll;
+    width:20%;
+}
+.right_cont_block{
+    overflow-y:scroll;
+    width:80%;
+}
+.foot_block{
+    position: fixed;
+    bottom: 0px;
+    height: 80px;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.textarea{
+    width: 80%;
+    height: 80px;
+    border: 1px solid lightgray;
+    border-radius: 0;
+}
+.button_send{
+    width: 20%;
+    height: 80px;
+    border: 1px solid lightgray;
+    border-radius: 0;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+.left_cont_block select{
+    width: 49%;
+    margin: 0;
+    padding: 0;
+    height: 35px;
+    border:solid 1px lightgray;
+}
+.left_cont_block input{
+    width: 49%;
+    margin: 0;
+    padding: 0;
+    height: 35px;
+    background:white;
+    border:solid 1px lightgray;
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNet.Identity.EntityFramework;
+using DocAppBackendWithAuth.Models;
+
 
 namespace DocAppBackendWithAuth.Entity.POCO
 {
@@ -52,6 +54,16 @@ namespace DocAppBackendWithAuth.Entity.POCO
         /// Пользователь
         /// </summary>
         public virtual IdentityUser User { get; set; }
+
+
+        public SearchUserModel toSearchModel()
+        {
+            return new SearchUserModel
+            {
+                UserName = this.User.UserName,
+                IdentityId = this.User.Id
+            };
+        }
 
     }
 }

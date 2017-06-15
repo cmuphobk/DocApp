@@ -51,7 +51,12 @@ namespace DocAppBackendWithAuth.Entity.POCO
         /// </summary>
         public virtual List<Weight> weights { get; set; }
 
-        
+        /// <summary>
+        /// Удален ли
+        /// </summary>
+        public bool isDelete { get; set; }
+
+
         /*public Diagnos addSympthom(Symptom symptom)
         {
             if (weights == null)

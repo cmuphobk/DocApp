@@ -34,8 +34,10 @@ namespace DocAppBackendWithAuth.Entity.POCO
             return new DialogModel
             {
                 Id = this.Id,
-                IdFirstUser = this.FirstUser.Id,
-                IdSecondUser = this.SecondUser.Id
+                IdFirstUser = this.FirstUser.User.Id,
+                IdSecondUser = this.SecondUser.User.Id,
+                UsernameFirstUser = this.FirstUser.User.UserName,
+                UsernameSecondUser = this.SecondUser.User.UserName
             };
 
         }

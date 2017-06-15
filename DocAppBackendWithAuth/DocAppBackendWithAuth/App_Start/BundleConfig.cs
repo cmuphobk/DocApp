@@ -28,7 +28,11 @@ namespace DocAppBackendWithAuth
 
             bundles.Add(new StyleBundle("~/Content/cssbundle").Include(
                       "~/Content/css/bootstrap.css",
-                      "~/Content/css/Site.css"));
+                      "~/Content/css/Site.css",
+                      "~/Content/css/chosen.css"));
+
+            bundles.Add(new StyleBundle("~/Content/jsbundle").Include(
+                      "~/Content/js/chosen.jquery.js"));
         }
     }
 }

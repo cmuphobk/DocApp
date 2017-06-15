@@ -16,7 +16,7 @@ namespace DocAppBackendWithAuth.Entity.POCO
 
         public string Text { get; set; }
 
-        public BaseUser sender { get; set; }
+        public BaseUser Sender { get; set; }
 
         public List<Image> Images { get; set; }
 
@@ -24,16 +24,18 @@ namespace DocAppBackendWithAuth.Entity.POCO
 
         public List<Document> Documents {get; set; }
 
-        public DateTime DateTimeSend { get; set; }
+        public DateTime? DateTimeSend { get; set; }
 
-        public int Year { get; set; }
+        public int? Year { get; set; }
 
         public MessageModel toModel()
         {
             return new MessageModel
             {
                 Id = this.Id,
-                Text = this.Text
+                Text = this.Text,
+                IdSender = this.Sender.User.Id,
+                NameSender = this.Sender.Name
             };
 
         }

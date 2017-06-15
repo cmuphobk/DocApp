@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="login_form col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 col-xs-offset-0">
+        <h2>Авторизация</h2>
+
+        <input placeholder="Логин" class="form-control login_controll controll" />
+        <input placeholder="Пароль" type="password" class="form-control pass_controll controll" />
+        <input type="button" value="Войти" class="form-control btn btn-primary enter_controll controll" />
+
+        <input type="button" value="Регистрация" class="form-control btn btn-default register_controll controll" data-toggle="modal" data-target="#registerModal"/>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="registerModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Регистрация</h4>
+            </div>
+            <div class="modal-body">
+                <input placeholder="Логин" class="form-control login_reg controll" />
+                <input placeholder="Имя" class="form-control name_reg controll" />
+                <input placeholder="Фамилия" class="form-control firstname_reg controll" />
+                <input placeholder="Отчество" class="form-control secondname_reg controll" />
+                <input placeholder="Email" class="form-control email_reg controll" />
+                <input placeholder="Пароль" type="password" class="form-control pass_reg controll" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default enter_reg">ОК</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    var tokenKey = "tokenInfo";
+    sessionStorage.setItem(tokenKey, '');
+    $('.enter_controll').click(function () {
+        loginData.username = $('.login_controll').val();
+        loginData.password = $('.pass_controll').val();
+
+        login(function () {
+            window.location.href = '/Home';
+        });
+    })
+    $('.enter_reg').click(function () {
+        var data = {};
+        data.username = $('.login_reg').val();
+        data.name = $('.name_reg').val();
+        data.firstname = $('.firstname_reg').val();
+        data.secondname = $('.secondname_reg').val();
+        data.email = $('.email_reg').val();
+        data.password = $('.pass_reg').val();
+        data.confirmpassword = $('.pass_reg').val();
+
+        register(data, function (data) {
+            if (data.status == 200) {
+                var message = 'Поздравляем! Вы успешно зарегистрировались!';
+                handleSuccess(message)
+
+                $('#registerModal').modal('hide');
+
+                $('.login_reg').val('');
+                $('.name_reg').val('');
+                $('.firstname_reg').val('');
+                $('.secondname_reg').val('');
+                $('.email_reg').val('');
+                $('.pass_reg').val('');
+                $('.pass_reg').val('');
+            } else {
+                var err = JSON.parse(data.responseText).ModelState[""];
+                var message = '';
+                if (err.length) {
+                    message = err.join(', ');
+                } else {
+                    message = 'Ошибка регистрации. Проверьте правильность заполнения полей.';
+                }
+
+                handleException(message)
+            }
+            
+        })
+    })
+</script>

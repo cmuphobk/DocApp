@@ -35,7 +35,7 @@
                 <div class="row">
                     <div class="col-md-6"><button class="system_edit_button s_button" data-bind="event:{click:function(data,event){editDepartament(data,event);}}"><span class="glyphicon glyphicon-edit"></span></button></div>
                     <!--<div class="col-md-4"><button class="system_create_button s_button"><span class="glyphicon glyphicon-plus"></span></button></div>-->
-                    <div class="col-md-6"><button class="system_remove_button s_button"><span class="glyphicon glyphicon-remove"></span></button></div>
+                    <div class="col-md-6"><button class="system_remove_button s_button" data-bind="event:{click:function(data,event){removeDepartament(data,event);}}"><span class="glyphicon glyphicon-remove"></span></button></div>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
                 <div class="row">
                     <div class="col-md-6"><button class="group_edit_button s_button" data-bind="event:{click:function(data,event){editGroup(data,event);}}"><span class="glyphicon glyphicon-edit"></span></button></div>
                     <!--<div class="col-md-4"><button class="group_create_button s_button"><span class="glyphicon glyphicon-plus"></span></button></div>-->
-                    <div class="col-md-6"><button class="group_remove_button s_button"><span class="glyphicon glyphicon-remove"></span></button></div>
+                    <div class="col-md-6"><button class="group_remove_button s_button" data-bind="event:{click:function(data,event){removeGroup(data,event);}}"><span class="glyphicon glyphicon-remove"></span></button></div>
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
                 <div class="row">
                     <div class="col-md-6"><button class="symptom_edit_button s_button" data-bind="event:{click:function(data,event){editSymptom(true,data,event);}}"><span class="glyphicon glyphicon-edit"></span></button></div>
                     <!--<div class="col-md-4"><button class="symptom_create_button s_button"><span class="glyphicon glyphicon-plus"></span></button></div>-->
-                    <div class="col-md-6"><button class="symptom_remove_button s_button"><span class="glyphicon glyphicon-remove"></span></button></div>
+                    <div class="col-md-6"><button class="symptom_remove_button s_button" data-bind="event:{click:function(data,event){removeSymptom(data,event);}}"><span class="glyphicon glyphicon-remove"></span></button></div>
                 </div>
             </div>
         </div>
@@ -96,7 +96,7 @@
                 <div class="row">
                     <div class="col-md-6"><button class="diagnos_edit_button s_button" data-bind="event:{click:function(data,event){editDiagnos(data,event);}}"><span class="glyphicon glyphicon-edit"></span></button></div>
                     <!--<div class="col-md-4"><button class="group_create_button s_button"><span class="glyphicon glyphicon-plus"></span></button></div>-->
-                    <div class="col-md-6"><button class="diagnos_remove_button s_button"><span class="glyphicon glyphicon-remove"></span></button></div>
+                    <div class="col-md-6"><button class="diagnos_remove_button s_button" data-bind="event:{click:function(data,event){removeDiagnos(data,event);}}"><span class="glyphicon glyphicon-remove"></span></button></div>
                 </div>
             </div>
         </div>
@@ -116,8 +116,9 @@
                     <input id="isMale" type="checkbox" data-bind="checked:isMale" />
                     <label for="isFemale" class="isFemaleLabel">Для женщины</label>
                     <input id="isFemale" type="checkbox" data-bind="checked:isFemale" />
-
-                    <button class="save_symptom" data-bind="event:{click:function(data,event){saveSymptom(data,event)}}" data-dismiss="modal">Сохранить</button>
+                    <div>
+                        <button class="save_symptom" data-bind="event:{click:function(data,event){saveSymptom(data,event)}}" data-dismiss="modal">Сохранить</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -182,6 +183,7 @@
                 });
 
                 self.getDiagnoses(function (result) {
+                    self.diagnoses([]);
                     for (var i in result) {
                         self.diagnoses.push(result[i]);
                     }
@@ -193,15 +195,99 @@
                 var href = "@Url.Action("ManageDepartament", "Home")";
                 location.href = href + '?id=' + data.selectedDepartament().id;
             }
+            self.removeDepartament = function (data, event) {
+                $('#confirm_modal').modal('show');
+                $('#confirm_modal .confirm_btn').unbind('click').click(function () {
+                    self.removeDepartamentAct(data, event);
+                })
+            }
+            self.removeDepartamentAct = function (data, event) {
+                var model = {};
+                model.id = self.selectedDepartament().id;
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/api/Neural/Departament',
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    contentType: 'application/json',
+                    data: JSON.stringify(model),
+                    success: function (data) {
+                        handleSuccess("Система успешно удалена");
+                        self.generateView();
+                    },
+                    fail: function (data) {
+                        handleException();
+                    }
+
+                });
+            }
             self.editGroup = function (data, event) {
 
                 var href = "@Url.Action("ManageGroup", "Home")";
                 location.href = href + '?id=' + data.selectedGroup().id;
             }
+            self.removeGroup = function (data, event) {
+                $('#confirm_modal').modal('show');
+                $('#confirm_modal .confirm_btn').unbind('click').click(function () {
+                    self.removeGroupAct(data, event);
+                })
+            }
+            self.removeGroupAct = function (data, event) {
+                var model = {};
+                model.id = self.selectedGroup().id;
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/api/Neural/Group',
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    contentType: 'application/json',
+                    data: JSON.stringify(model),
+                    success: function (data) {
+                        handleSuccess("Группа успешно удалена");
+                        self.generateView();
+                    },
+                    fail: function (data) {
+                        handleException();
+                    }
+
+                });
+            }
             self.editDiagnos = function (data, event) {
 
                 var href = "@Url.Action("ManageDiagnos", "Home")";
                 location.href = href + '?id=' + data.selectedDiagnos().id;
+            }
+            self.removeDiagnos = function (data, event) {
+                $('#confirm_modal').modal('show');
+                $('#confirm_modal .confirm_btn').unbind('click').click(function () {
+                    self.removeDiagnosAct(data, event);
+                })
+            }
+            self.removeDiagnosAct = function (data, event) {
+                var model = {};
+                model.id = self.selectedDiagnos().id;
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/api/Neural/Diagnos',
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    contentType: 'application/json',
+                    data: JSON.stringify(model),
+                    success: function (data) {
+                        handleSuccess("Диагноз успешно удален");
+                        self.generateView();
+                    },
+                    fail: function (data) {
+                        handleException();
+                    }
+
+                });
             }
             self.editSymptom = function (isEdit, data, event) {
                 if (isEdit) {
@@ -223,6 +309,34 @@
                 }
                 self.generateView();
 
+            }
+            self.removeSymptom = function (data, event) {
+                $('#confirm_modal').modal('show');
+                $('#confirm_modal .confirm_btn').unbind('click').click(function () {
+                    self.removeSymptomAct(data, event);
+                })
+            }
+            self.removeSymptomAct = function (data, event) {
+                var model = {};
+                model.id = self.selectedSymptom().id;
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/api/Neural/Symptom',
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    contentType: 'application/json',
+                    data: JSON.stringify(model),
+                    success: function (data) {
+                        handleSuccess("Симптом успешно удален");
+                        self.generateView();
+                    },
+                    fail: function (data) {
+                        handleException();
+                    }
+
+                });
             }
 
             self.saveSymptom = function (data, event) {

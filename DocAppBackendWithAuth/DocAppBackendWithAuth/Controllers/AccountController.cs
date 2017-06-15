@@ -61,7 +61,7 @@ namespace DocAppBackendWithAuth.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email };
 
             IdentityResult result = UserManager.Create(user, model.Password);
 
@@ -72,6 +72,21 @@ namespace DocAppBackendWithAuth.Controllers
 
             var baseUser = new AuthLogic().createUser(model.Name, model.FirstName, model.SecondName, user);
             return Ok();
+        }
+
+        //GET api/Account/Users
+        [HttpGet]
+        [Route("Users")]
+        public IEnumerable<SearchUserModel> getUsers()
+        {
+            var logic = new AuthLogic();
+            var users = logic.getUsers();
+            var returnUsers = new List<SearchUserModel>();
+            foreach(var obj in users)
+            {
+                returnUsers.Add(obj.toSearchModel());
+            }
+            return returnUsers;
         }
 
         // POST api/Account/ChangePassword
